@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-13T07:51:22.489Z</updated>
+  <updated>2020-03-19T03:36:15.063Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Custom snippets in VSCode</title>
+    <link href="http://yoursite.com/2020/03/19/xx035/"/>
+    <id>http://yoursite.com/2020/03/19/xx035/</id>
+    <published>2020-03-19T03:35:10.000Z</published>
+    <updated>2020-03-19T03:36:15.063Z</updated>
+    
+    <content type="html"><![CDATA[<p>Just tried the snippet in VSCode, it’s easy and has the potential to replace <code>atext</code>, given that aText does not work as expected.<br>This is how it looks, </p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">"Layout the notepad": &#123;</span><br><span class="line">  "prefix": "ddt",</span><br><span class="line">  "body": [</span><br><span class="line">          "## WHAT I DID",</span><br><span class="line">          "- $0",</span><br><span class="line">          "## WHAT I WAS THINKING",</span><br><span class="line">          <span class="string">"-"</span></span><br><span class="line">  ],</span><br><span class="line">  "description": "layout the markdown diary"</span><br></pre></td></tr></table></figure><p><code>$0</code> is where the final cursor is;</p><p>In this way, I can layout my diary by typing just <code>ddt</code>.</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## WHAT I DID</span></span><br><span class="line"><span class="bullet">- </span></span><br><span class="line"><span class="section">## WHAT I WAS THINKING</span></span><br><span class="line">-</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Just tried the snippet in VSCode, it’s easy and has the potential to replace &lt;code&gt;atext&lt;/code&gt;, given that aText does not work as
+        
+      
+    
+    </summary>
+    
+    
+      <category term="利器" scheme="http://yoursite.com/categories/%E5%88%A9%E5%99%A8/"/>
+    
+    
+      <category term="tools" scheme="http://yoursite.com/tags/tools/"/>
+    
+      <category term="vscode" scheme="http://yoursite.com/tags/vscode/"/>
+    
+      <category term="snippets" scheme="http://yoursite.com/tags/snippets/"/>
+    
+  </entry>
   
   <entry>
     <title>使用 Saber 搭建 Github Pages</title>
@@ -265,9 +298,9 @@
       <category term="日记" scheme="http://yoursite.com/categories/%E6%97%A5%E8%AE%B0/"/>
     
     
-      <category term="封杀" scheme="http://yoursite.com/tags/%E5%B0%81%E6%9D%80/"/>
-    
       <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
+    
+      <category term="封杀" scheme="http://yoursite.com/tags/%E5%B0%81%E6%9D%80/"/>
     
       <category term="纪录片" scheme="http://yoursite.com/tags/%E7%BA%AA%E5%BD%95%E7%89%87/"/>
     
@@ -388,8 +421,6 @@
       <category term="日记" scheme="http://yoursite.com/categories/%E6%97%A5%E8%AE%B0/"/>
     
     
-      <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
-    
       <category term="盛世如斯" scheme="http://yoursite.com/tags/%E7%9B%9B%E4%B8%96%E5%A6%82%E6%96%AF/"/>
     
       <category term="隔离日记" scheme="http://yoursite.com/tags/%E9%9A%94%E7%A6%BB%E6%97%A5%E8%AE%B0/"/>
@@ -397,6 +428,8 @@
       <category term="Hammerspoon" scheme="http://yoursite.com/tags/Hammerspoon/"/>
     
       <category term="Anki" scheme="http://yoursite.com/tags/Anki/"/>
+    
+      <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
     
   </entry>
   
@@ -608,37 +641,6 @@
     
     
       <category term="性爱" scheme="http://yoursite.com/tags/%E6%80%A7%E7%88%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>垃圾游戏</title>
-    <link href="http://yoursite.com/2019/09/02/xx0006/"/>
-    <id>http://yoursite.com/2019/09/02/xx0006/</id>
-    <published>2019-09-02T05:15:58.000Z</published>
-    <updated>2019-09-02T05:23:08.399Z</updated>
-    
-    <content type="html"><![CDATA[<p>《绝地求生》更新之后电脑基本带不动了。这个游戏的优化真是让人摸不着头脑。根本没法玩了。卸载了。玩这个游戏首先电脑配置要好，然后网络还得好，加速器要好，然后再是枪法，身法，战术。突破重重阻碍之后被卡 bug，或者被老阴逼暗搓搓杀死，简直心态崩裂。索性不玩了。</p><p>《文明》这个游戏玩了五六十个小时还没琢磨出来胜利的门路，这游戏时长也太长了，心里憔悴。回合制策略游戏，turn-based strategy game。最快要 200 个回合胜利，400 个回合到 2050 年可以熬死 AI。服了。卸载了，不玩了。</p><p> 经常想起《塞尔达》里面的场景，就在卡卡村后面的池塘边，半夜蹲点，等着守卫出现。有时候游戏的记忆会和现实的记忆混淆起来。《巫师》就更不用说了。永远忘不了巫师里面阴森恐怖的第一章。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;《绝地求生》更新之后电脑基本带不动了。这个游戏的优化真是让人摸不着头脑。根本没法玩了。卸载了。玩这个游戏首先电脑配置要好，然后网络还得好，加速器要好，然后再是枪法，身法，战术。突破重重阻碍之后被卡
-        
-      
-    
-    </summary>
-    
-    
-      <category term="日记" scheme="http://yoursite.com/categories/%E6%97%A5%E8%AE%B0/"/>
-    
-    
-      <category term="绝地求生" scheme="http://yoursite.com/tags/%E7%BB%9D%E5%9C%B0%E6%B1%82%E7%94%9F/"/>
-    
-      <category term="文明" scheme="http://yoursite.com/tags/%E6%96%87%E6%98%8E/"/>
     
   </entry>
   

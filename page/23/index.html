@@ -158,6 +158,144 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/25/201806252/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="二狗子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Death by Routine">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/25/201806252/" class="post-title-link" itemprop="url">Just Controllers</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-06-25 12:05" itemprop="dateCreated datePublished" datetime="2018-06-25T12:05:50+08:00">2018-06-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-17 17:05" itemprop="dateModified" datetime="2020-03-17T17:05:00+08:00">2020-03-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BF%BB%E8%AF%91/" itemprop="url" rel="index">
+                    <span itemprop="name">翻译</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/06/25/201806252/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/25/201806252/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>本文为 SwiftGG 项目组翻译文章，<a href="http://khanlou.com/2018/02/just-controllers/" target="_blank" rel="noopener">原文链接在此</a>。</p>
+</blockquote>
+<p>苹果官方文档中提到了 MVC 的软件设计模式。不过，苹果介绍的并不是本质意义上的 MVC 。<a href="http://khanlou.com/2014/03/model-view-whatever/" target="_blank" rel="noopener">关于这一点我之前也有写过一篇文章</a>，MVC 是为 Smalltalk 语言设计的一种设计模式。在 Smalltalk 语言里，MVC 的三个组件：模型（model）、视图（view）和控制器（controller）之间都可以相互通信。这就意味着或者视图知道如何实现一个模型，或者模型知道如何在视图中应用自己。</p>
+<p>我们写 iOS 软件的时候，通常会把可以直接通信的视图和模型称之为“反模式”，不推荐这么做。我们所谓的 MVC 更准确的说其实是“模型 - 视图 - 适配器（Model - View - Adapter）”。我们说的“视图控制器”（适配器）其实只是模型和视图中间沟通的一个桥梁。笼统来讲，我觉得这是对正统 MVC 一个不错的改良——不是把视图和模型绑在一起，而是通过一个适配器把模型和视图联系起来，这个方法不错。然而，我不得不说，在我工作中涉及到的很多系统里，其实模型和视图都是分开的。</p>
+<p>以上就是为什么 iOS 开发里会有视图控制器的原因：把模型和视图联系起来。但是这种模式的编码会产生一些问题：有一些代码看起来既不属于模型，也不属于视图，所以我们就把这些代码放到了视图控制器里，最后视图控制器变得超级臃肿。关于这个问题，我在博客里面讨论过 <a href="http://khanlou.com/2015/10/coordinators-redux/" target="_blank" rel="noopener"> 很多次</a>，但这次我想说的不是这个问题。</p>
+<hr>
+<p>我私下里听到过很多关于 <code>UIViewController</code> 的谈论。我认为 <code>UIViewController</code> 这个基本类写的不是很好，这个你用 UIKit 用得越久就越能感觉到。我听说 <code>UIViewController</code> 这个基本类型有 1 万到 2 万行代码（那是几年前了，现在可能已经超过两万行了）。</p>
+<p>当我们需要把 <code>UIView</code> 和一个模型联系起来的时候，我们通常会把视图控制器分成一个个小的 视图控制器组件，然后再组装到一起。</p>
+<p>但是，这样做太大动干戈（小题大做）了。一个小地方没处理好，就会出现很多 bug，而且这样的 bug 很难修复，也没有什么提示。然后，当你终于找到 bug 的时候，bug 通常是对 <code>didMove</code> 或者 <code>willMove</code> 调用的顺序不对，程序忽然就好了。其实，出现了 <code>didMove</code> 和<code>willMove</code>已经说明这些组件一些内部状态需要清理了。</p>
+<p>这样的情况我自己就遇到过两次。第一次是我把视图控制器放在了 <code>tableView</code> 的<code>cell</code>里。出现的 bug 就是，table view 里面的一些内容总会莫名其妙地消失。然后过了好几个月，我才意识到我对 table view cells 的生命周期理解有误。</p>
+<p>在我改正了一些对 <code>-addChildViewController</code> 的调用之后，程序就正常运行了。</p>
+<p>这件事让我看到了一个很大的问题：视图控制器的视图并不是一个普普通通的视图。它知道自己不是一个普通的视图，而是一个视图控制器的视图，它有自己一些特性。</p>
+<p>回过头去看，一切都很明显。<code>UIViewController</code>怎么知道什么时候该去调用 <code>viewDidLayoutSubviews</code>? 肯定是<code>view</code> 向它发送了请求，这就意味着视图对视图控制器是有一些了解的。</p>
+<p>第二次是最近碰到的，这次我是在把一个视图控制器的视图作为一个 text field 的 <code>inputAccessoryView</code>。我是在实现一个通信软件（类似 iMessage）里<code>textField</code> 贴在屏幕底部的功能，整个过程十分挫败。我花了整整一天时间都没搞定，最后还是把这个视图转换成了一个普通的视图。</p>
+<hr>
+<p>所以，我们通常想让 <code>UIViewController1</code> 做的是哪些事情呢？</p>
+<ul>
+<li>承载视图</li>
+<li>把模型和视图联系起来</li>
+</ul>
+<p>那 <code>UIViewController1</code> 还做了那些我们并不十分在意的事呢？</p>
+<ul>
+<li>为子视图控制器提供存储</li>
+<li>把外观和过渡动画推送给子视图控制器</li>
+<li>可以在类似 <code>UINavigationController</code> 的容器中显示</li>
+<li>内存过低通知</li>
+<li>处理状态栏</li>
+<li>保存状态、恢复状态</li>
+</ul>
+<p>知道了这些，在一些特殊情况下，我们要做一个替代视图控制器的东西的时候，我们就知道了哪些东西是我们并不需要的。我喜欢这样，因为这样可以快速地解决问题，同时也符合我“自己的事情自己做”的性格。</p>
+<p>还有一个问题，这个东西怎么命名呢？我觉得命名成一个视图控制器不太好，很容易被误解为一个 <code>UIViewController</code> 的子类。或者，我们就叫它 <code>Controller</code>? 我觉得可以（<a href="http://khanlou.com/2014/11/a-controller-by-any-other-name/" target="_blank" rel="noopener"> 尽管我之前可能有其他观点</a>），因为它的作用就是 iOS MVC 设计框架中控制器的作用（把视图和模型联系起来），但是还有其他一些备选：<code>Binder</code>（粘合）, <code>Binding</code>（捆绑）, <code>Pair</code>（配对）, <code>Mediator</code>（中介）, <code>Concierge</code>（前台）。</p>
+<p>这个做法还有一个好处是，<strong>特别好写</strong>。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DestinationTextFieldController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> destination: <span class="type">Destination?</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">weak</span> <span class="keyword">var</span> delegate: <span class="type">DestinationTextFieldControllerDelegate?</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> textField = <span class="type">UITextField</span>().configure(&#123;</span><br><span class="line">        $<span class="number">0</span>.autocorrectionType = .no</span><br><span class="line">        $<span class="number">0</span>.clearButtonMode = .always</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不用 <code>UIViewController</code> 的子类，写个这样的东西，可能会有人喊，“异教徒！烧死他！”但是，当 <code>UIViewController</code> 没有把自己该做的事情做好的时候，我们就应该抛弃它。</p>
+<p>大家已将知道怎么给自己的新对象加新功能了。在我的这个例子中，控制器成了 <code>textField</code> 的代理，文字变化时发出事件（以及域元数据 domain metadta），同时提供更新视图（这个例子中是<code>textField</code>）的接口。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">DestinationTextFieldController</span> </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> isActive: <span class="type">Bool</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">self</span>.textField.isFirstResponder</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">func</span> <span class="title">update</span><span class="params">(with destination: Destination)</span></span> &#123;</span><br><span class="line">		<span class="keyword">self</span>.destination = destination</span><br><span class="line">		configureView()</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">configureView</span><span class="params">()</span></span> &#123;</span><br><span class="line">		textField.text = destination.descriptionForDisplay</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用这种新的控制器你还需要做其他几件事：</p>
+<ul>
+<li>你得新建一个实例变量来存储数据</li>
+<li>你得负责一些触发事件——因为它不是一个视图控制器，没有<code>-viewDidAppear</code></li>
+<li>你不是在 <code>UIKit</code> 框架里面了，所以其他一些 <code>UIKit</code> 的特性（<a href="https://developer.apple.com/documentation/uikit/uitraitcollection" target="_blank" rel="noopener">UITraitCollection</a>, <a href="https://developer.apple.com/documentation/uikit/uiview/positioning_content_relative_to_the_safe_area" target="_blank" rel="noopener">safe area insets</a>, 或者<a href="https://developer.apple.com/documentation/uikit/uiresponder" target="_blank" rel="noopener">UIResponder</a>）你都不能再使用了。如果要使用，你必须自己实现。</li>
+</ul>
+<p>使用这个对象不是很难，不过你还是需要写明它的数据存储方式， 防止它的内存被回收。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyViewController</span>: <span class="title">UIViewController</span>, <span class="title">DestinationTextFieldControllerDelegate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">let</span> destinationViewController = <span class="type">DestinationTextFieldController</span>()</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">		destinationViewController.delegate = <span class="keyword">self</span></span><br><span class="line">		view.addSubview(destinationViewController.view)</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//handle any delegate methods</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>话说回来，即使你使用我说的这个方法，其他大部分的视图应该还会是视图控制器和 <code>UIViewController</code> 的子类。不过，在某些特殊的情况下，整合一个视图控制器会耗费你过多的精力，这时候采用这种方法，就可以避免再次被 <code>UIKit</code> 折磨。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/25/20180625/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -675,115 +813,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/keep-finding/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="二狗子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Death by Routine">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/05/16/keep-finding/" class="post-title-link" itemprop="url">继续寻找 不要将就</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-05-16 20:50" itemprop="dateCreated datePublished" datetime="2018-05-16T20:50:33+08:00">2018-05-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-17 17:05" itemprop="dateModified" datetime="2020-03-17T17:05:36+08:00">2020-03-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BF%BB%E8%AF%91/" itemprop="url" rel="index">
-                    <span itemprop="name">翻译</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/05/16/keep-finding/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/16/keep-finding/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>2011 年乔布斯刚去世的时候，他生前在斯坦福的毕业演讲在中文网络上火了一阵，大家可能最熟悉的是“stay hungry, stay foolish”（当时流行的翻译是“求知若饥，求贤若渴”？）。</p>
-<p> 我当时记住的可能是他演讲里面提到的“connecting the dots”的说法，真的，人生各种机缘巧合，你永远不知道你现在体验到的事情会在将来对你造成什么样的影响。总有那么一个时候，你回头看看会发现，那星星点点的体验，竟然拼成了自己当时也没有意料到的一幅图景。</p>
-<p> 工作了几年之后，再回头看看他的演讲，感受最深刻的又变了，现在最感同身受的是这一句：<a href="https://news.stanford.edu/2005/06/14/jobs-061505/" target="_blank" rel="noopener"><strong>you’ve got to find what you love</strong></a>。</p>
-<p> 回头再去听听演讲，他说的这一段真是深刻。翻译了一下，放在这里，鼓励自己。</p>
-<h2 id="原文"><a href="# 原文" class="headerlink" title="原文"></a> 原文 </h2><blockquote>
-<p>Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. </p>
-<p>And the only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. </p>
-</blockquote>
-<blockquote>
-<p>As with all matters of the heart, you’ll know when you find it. like any great relationship, it just gets better and better as the years roll on. So keep looking until you find it. Don’t settle.</p>
-</blockquote>
-<h2 id="翻译"><a href="# 翻译" class="headerlink" title="翻译"></a> 翻译 </h2><blockquote>
-<p> 工作会占据你人生的很大部分，让自己快乐的唯一方法就是把自己的工作做得很牛逼。</p>
-</blockquote>
-<blockquote>
-<p> 只有热爱自己的工作，你才能把它做得很牛逼。<strong> 如果你还没找到自己热爱的事情，继续找，不要停下来，不要将就。</strong></p>
-</blockquote>
-<blockquote>
-<p> 当你找到心之所属的时候，你会感觉到的。就像其他美好的关系一样，日升日落，你们的关系会越来越美好。所以，<strong> 如果你还没有找到自己热爱的事情，继续找，不要停下来，不要将就。</strong></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -856,7 +885,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -869,7 +898,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">190</span>
+        <span class="site-state-item-count">193</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
