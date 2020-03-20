@@ -2,12 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Death by Routine</title>
   
-  <subtitle>Beyond translation.</subtitle>
+  <subtitle>不止翻译。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://yiti.ml/"/>
   <updated>2020-03-19T03:36:15.063Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://yiti.ml/</id>
   
   <author>
     <name>MaxXD</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Custom snippets in VSCode</title>
-    <link href="http://yoursite.com/2020/03/19/xx035/"/>
-    <id>http://yoursite.com/2020/03/19/xx035/</id>
+    <link href="https://yiti.ml/2020/03/19/xx035/"/>
+    <id>https://yiti.ml/2020/03/19/xx035/</id>
     <published>2020-03-19T03:35:10.000Z</published>
     <updated>2020-03-19T03:36:15.063Z</updated>
     
@@ -38,21 +38,21 @@
     </summary>
     
     
-      <category term="利器" scheme="http://yoursite.com/categories/tools/"/>
+      <category term="利器" scheme="https://yiti.ml/categories/tools/"/>
     
     
-      <category term="tools" scheme="http://yoursite.com/tags/tools/"/>
+      <category term="tools" scheme="https://yiti.ml/tags/tools/"/>
     
-      <category term="vscode" scheme="http://yoursite.com/tags/vscode/"/>
+      <category term="vscode" scheme="https://yiti.ml/tags/vscode/"/>
     
-      <category term="snippets" scheme="http://yoursite.com/tags/snippets/"/>
+      <category term="snippets" scheme="https://yiti.ml/tags/snippets/"/>
     
   </entry>
   
   <entry>
     <title>低谷之后还是低谷</title>
-    <link href="http://yoursite.com/2020/03/12/fy027/"/>
-    <id>http://yoursite.com/2020/03/12/fy027/</id>
+    <link href="https://yiti.ml/2020/03/12/fy027/"/>
+    <id>https://yiti.ml/2020/03/12/fy027/</id>
     <published>2020-03-12T14:58:54.000Z</published>
     <updated>2020-03-12T15:17:07.867Z</updated>
     
@@ -74,19 +74,19 @@
     </summary>
     
     
-      <category term="土嗨英语" scheme="http://yoursite.com/categories/prankenglish/"/>
+      <category term="土嗨英语" scheme="https://yiti.ml/categories/prankenglish/"/>
     
     
-      <category term="马男" scheme="http://yoursite.com/tags/%E9%A9%AC%E7%94%B7/"/>
+      <category term="马男" scheme="https://yiti.ml/tags/%E9%A9%AC%E7%94%B7/"/>
     
-      <category term="Bojack" scheme="http://yoursite.com/tags/Bojack/"/>
+      <category term="Bojack" scheme="https://yiti.ml/tags/Bojack/"/>
     
   </entry>
   
   <entry>
     <title>使用 Saber 搭建 Github Pages</title>
-    <link href="http://yoursite.com/2020/03/10/xx034/"/>
-    <id>http://yoursite.com/2020/03/10/xx034/</id>
+    <link href="https://yiti.ml/2020/03/10/xx034/"/>
+    <id>https://yiti.ml/2020/03/10/xx034/</id>
     <published>2020-03-10T07:04:10.000Z</published>
     <updated>2020-03-13T07:51:22.489Z</updated>
     
@@ -107,17 +107,17 @@
     </summary>
     
     
-      <category term="利器" scheme="http://yoursite.com/categories/tools/"/>
+      <category term="利器" scheme="https://yiti.ml/categories/tools/"/>
     
     
-      <category term="Saber" scheme="http://yoursite.com/tags/Saber/"/>
+      <category term="Saber" scheme="https://yiti.ml/tags/Saber/"/>
     
   </entry>
   
   <entry>
     <title>Quarantined Day36</title>
-    <link href="http://yoursite.com/2020/03/03/xx033/"/>
-    <id>http://yoursite.com/2020/03/03/xx033/</id>
+    <link href="https://yiti.ml/2020/03/03/xx033/"/>
+    <id>https://yiti.ml/2020/03/03/xx033/</id>
     <published>2020-03-03T13:39:36.000Z</published>
     <updated>2020-03-13T07:51:38.335Z</updated>
     
@@ -138,17 +138,17 @@
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/categories/diary/"/>
+      <category term="日记" scheme="https://yiti.ml/categories/diary/"/>
     
     
-      <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
+      <category term="QDay" scheme="https://yiti.ml/tags/QDay/"/>
     
   </entry>
   
   <entry>
     <title>Quarantined Day35</title>
-    <link href="http://yoursite.com/2020/03/02/xx032/"/>
-    <id>http://yoursite.com/2020/03/02/xx032/</id>
+    <link href="https://yiti.ml/2020/03/02/xx032/"/>
+    <id>https://yiti.ml/2020/03/02/xx032/</id>
     <published>2020-03-02T15:39:04.000Z</published>
     <updated>2020-03-13T07:51:53.275Z</updated>
     
@@ -169,17 +169,17 @@
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/categories/diary/"/>
+      <category term="日记" scheme="https://yiti.ml/categories/diary/"/>
     
     
-      <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
+      <category term="QDay" scheme="https://yiti.ml/tags/QDay/"/>
     
   </entry>
   
   <entry>
     <title>申请域名并绑定 GitHub Page</title>
-    <link href="http://yoursite.com/2020/03/01/xx031/"/>
-    <id>http://yoursite.com/2020/03/01/xx031/</id>
+    <link href="https://yiti.ml/2020/03/01/xx031/"/>
+    <id>https://yiti.ml/2020/03/01/xx031/</id>
     <published>2020-03-01T15:06:02.000Z</published>
     <updated>2020-03-01T15:25:12.305Z</updated>
     
@@ -198,17 +198,17 @@
     </summary>
     
     
-      <category term="利器" scheme="http://yoursite.com/categories/tools/"/>
+      <category term="利器" scheme="https://yiti.ml/categories/tools/"/>
     
     
-      <category term="域名" scheme="http://yoursite.com/tags/%E5%9F%9F%E5%90%8D/"/>
+      <category term="域名" scheme="https://yiti.ml/tags/%E5%9F%9F%E5%90%8D/"/>
     
   </entry>
   
   <entry>
     <title>MacOS 上的平铺窗口管理器 Amethyst 使用</title>
-    <link href="http://yoursite.com/2020/02/29/xx030/"/>
-    <id>http://yoursite.com/2020/02/29/xx030/</id>
+    <link href="https://yiti.ml/2020/02/29/xx030/"/>
+    <id>https://yiti.ml/2020/02/29/xx030/</id>
     <published>2020-02-29T05:30:38.000Z</published>
     <updated>2020-02-29T05:59:07.553Z</updated>
     
@@ -227,19 +227,19 @@
     </summary>
     
     
-      <category term="利器" scheme="http://yoursite.com/categories/tools/"/>
+      <category term="利器" scheme="https://yiti.ml/categories/tools/"/>
     
     
-      <category term="MacOS" scheme="http://yoursite.com/tags/MacOS/"/>
+      <category term="MacOS" scheme="https://yiti.ml/tags/MacOS/"/>
     
-      <category term="Amethyst" scheme="http://yoursite.com/tags/Amethyst/"/>
+      <category term="Amethyst" scheme="https://yiti.ml/tags/Amethyst/"/>
     
   </entry>
   
   <entry>
     <title>我们距离真相更近了吗？</title>
-    <link href="http://yoursite.com/2020/02/27/xx029/"/>
-    <id>http://yoursite.com/2020/02/27/xx029/</id>
+    <link href="https://yiti.ml/2020/02/27/xx029/"/>
+    <id>https://yiti.ml/2020/02/27/xx029/</id>
     <published>2020-02-27T14:39:12.000Z</published>
     <updated>2020-03-13T07:52:38.931Z</updated>
     
@@ -260,17 +260,17 @@
     </summary>
     
     
-      <category term="盛世如斯" scheme="http://yoursite.com/categories/vivalachina/"/>
+      <category term="盛世如斯" scheme="https://yiti.ml/categories/vivalachina/"/>
     
     
-      <category term="病毒" scheme="http://yoursite.com/tags/%E7%97%85%E6%AF%92/"/>
+      <category term="病毒" scheme="https://yiti.ml/tags/%E7%97%85%E6%AF%92/"/>
     
   </entry>
   
   <entry>
     <title>Archlinux 下面 i3 窗口管理器的安装设置</title>
-    <link href="http://yoursite.com/2020/02/27/xx028/"/>
-    <id>http://yoursite.com/2020/02/27/xx028/</id>
+    <link href="https://yiti.ml/2020/02/27/xx028/"/>
+    <id>https://yiti.ml/2020/02/27/xx028/</id>
     <published>2020-02-27T14:26:55.000Z</published>
     <updated>2020-02-29T08:21:35.801Z</updated>
     
@@ -291,21 +291,21 @@
     </summary>
     
     
-      <category term="利器" scheme="http://yoursite.com/categories/tools/"/>
+      <category term="利器" scheme="https://yiti.ml/categories/tools/"/>
     
     
-      <category term="archlinux" scheme="http://yoursite.com/tags/archlinux/"/>
+      <category term="archlinux" scheme="https://yiti.ml/tags/archlinux/"/>
     
-      <category term="i3wm" scheme="http://yoursite.com/tags/i3wm/"/>
+      <category term="i3wm" scheme="https://yiti.ml/tags/i3wm/"/>
     
-      <category term="rofi" scheme="http://yoursite.com/tags/rofi/"/>
+      <category term="rofi" scheme="https://yiti.ml/tags/rofi/"/>
     
   </entry>
   
   <entry>
     <title>纯洁 2020</title>
-    <link href="http://yoursite.com/2020/02/27/fy026/"/>
-    <id>http://yoursite.com/2020/02/27/fy026/</id>
+    <link href="https://yiti.ml/2020/02/27/fy026/"/>
+    <id>https://yiti.ml/2020/02/27/fy026/</id>
     <published>2020-02-27T02:19:11.000Z</published>
     <updated>2020-03-12T10:25:57.827Z</updated>
     
@@ -324,19 +324,19 @@
     </summary>
     
     
-      <category term="翻译" scheme="http://yoursite.com/categories/translate/"/>
+      <category term="翻译" scheme="https://yiti.ml/categories/translate/"/>
     
     
-      <category term="Youtube" scheme="http://yoursite.com/tags/Youtube/"/>
+      <category term="Youtube" scheme="https://yiti.ml/tags/Youtube/"/>
     
-      <category term="2020" scheme="http://yoursite.com/tags/2020/"/>
+      <category term="2020" scheme="https://yiti.ml/tags/2020/"/>
     
   </entry>
   
   <entry>
     <title>How to live our life</title>
-    <link href="http://yoursite.com/2020/02/27/fy025/"/>
-    <id>http://yoursite.com/2020/02/27/fy025/</id>
+    <link href="https://yiti.ml/2020/02/27/fy025/"/>
+    <id>https://yiti.ml/2020/02/27/fy025/</id>
     <published>2020-02-27T02:11:07.000Z</published>
     <updated>2020-02-27T15:47:55.044Z</updated>
     
@@ -355,17 +355,17 @@
     </summary>
     
     
-      <category term="翻译" scheme="http://yoursite.com/categories/translate/"/>
+      <category term="翻译" scheme="https://yiti.ml/categories/translate/"/>
     
     
-      <category term="剩余价值" scheme="http://yoursite.com/tags/%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC/"/>
+      <category term="剩余价值" scheme="https://yiti.ml/tags/%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC/"/>
     
   </entry>
   
   <entry>
     <title>Quarantined Day30</title>
-    <link href="http://yoursite.com/2020/02/26/xx027/"/>
-    <id>http://yoursite.com/2020/02/26/xx027/</id>
+    <link href="https://yiti.ml/2020/02/26/xx027/"/>
+    <id>https://yiti.ml/2020/02/26/xx027/</id>
     <published>2020-02-26T13:58:56.000Z</published>
     <updated>2020-03-13T07:52:56.202Z</updated>
     
@@ -389,21 +389,21 @@
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/categories/diary/"/>
+      <category term="日记" scheme="https://yiti.ml/categories/diary/"/>
     
     
-      <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
+      <category term="QDay" scheme="https://yiti.ml/tags/QDay/"/>
     
-      <category term="封杀" scheme="http://yoursite.com/tags/%E5%B0%81%E6%9D%80/"/>
+      <category term="封杀" scheme="https://yiti.ml/tags/%E5%B0%81%E6%9D%80/"/>
     
-      <category term="纪录片" scheme="http://yoursite.com/tags/%E7%BA%AA%E5%BD%95%E7%89%87/"/>
+      <category term="纪录片" scheme="https://yiti.ml/tags/%E7%BA%AA%E5%BD%95%E7%89%87/"/>
     
   </entry>
   
   <entry>
     <title>VirtualBox 安装 Archlinux 指南</title>
-    <link href="http://yoursite.com/2020/02/26/xx026/"/>
-    <id>http://yoursite.com/2020/02/26/xx026/</id>
+    <link href="https://yiti.ml/2020/02/26/xx026/"/>
+    <id>https://yiti.ml/2020/02/26/xx026/</id>
     <published>2020-02-26T09:06:39.000Z</published>
     <updated>2020-02-26T15:40:44.538Z</updated>
     
@@ -422,19 +422,19 @@
     </summary>
     
     
-      <category term="利器" scheme="http://yoursite.com/categories/tools/"/>
+      <category term="利器" scheme="https://yiti.ml/categories/tools/"/>
     
     
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+      <category term="linux" scheme="https://yiti.ml/tags/linux/"/>
     
-      <category term="arch" scheme="http://yoursite.com/tags/arch/"/>
+      <category term="arch" scheme="https://yiti.ml/tags/arch/"/>
     
   </entry>
   
   <entry>
     <title>Quarantined Day22</title>
-    <link href="http://yoursite.com/2020/02/18/xx025/"/>
-    <id>http://yoursite.com/2020/02/18/xx025/</id>
+    <link href="https://yiti.ml/2020/02/18/xx025/"/>
+    <id>https://yiti.ml/2020/02/18/xx025/</id>
     <published>2020-02-18T10:19:42.000Z</published>
     <updated>2020-03-13T07:51:00.367Z</updated>
     
@@ -454,17 +454,17 @@
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/categories/diary/"/>
+      <category term="日记" scheme="https://yiti.ml/categories/diary/"/>
     
     
-      <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
+      <category term="QDay" scheme="https://yiti.ml/tags/QDay/"/>
     
   </entry>
   
   <entry>
     <title>Quarantined Day20</title>
-    <link href="http://yoursite.com/2020/02/16/xx024/"/>
-    <id>http://yoursite.com/2020/02/16/xx024/</id>
+    <link href="https://yiti.ml/2020/02/16/xx024/"/>
+    <id>https://yiti.ml/2020/02/16/xx024/</id>
     <published>2020-02-16T12:21:24.000Z</published>
     <updated>2020-03-13T07:51:12.517Z</updated>
     
@@ -483,17 +483,17 @@
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/categories/diary/"/>
+      <category term="日记" scheme="https://yiti.ml/categories/diary/"/>
     
     
-      <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
+      <category term="QDay" scheme="https://yiti.ml/tags/QDay/"/>
     
   </entry>
   
   <entry>
     <title>Quarantined Day19</title>
-    <link href="http://yoursite.com/2020/02/15/xx023/"/>
-    <id>http://yoursite.com/2020/02/15/xx023/</id>
+    <link href="https://yiti.ml/2020/02/15/xx023/"/>
+    <id>https://yiti.ml/2020/02/15/xx023/</id>
     <published>2020-02-15T07:09:38.000Z</published>
     <updated>2020-03-17T09:12:14.155Z</updated>
     
@@ -512,25 +512,25 @@
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/categories/diary/"/>
+      <category term="日记" scheme="https://yiti.ml/categories/diary/"/>
     
     
-      <category term="盛世如斯" scheme="http://yoursite.com/tags/%E7%9B%9B%E4%B8%96%E5%A6%82%E6%96%AF/"/>
+      <category term="盛世如斯" scheme="https://yiti.ml/tags/%E7%9B%9B%E4%B8%96%E5%A6%82%E6%96%AF/"/>
     
-      <category term="隔离日记" scheme="http://yoursite.com/tags/%E9%9A%94%E7%A6%BB%E6%97%A5%E8%AE%B0/"/>
+      <category term="隔离日记" scheme="https://yiti.ml/tags/%E9%9A%94%E7%A6%BB%E6%97%A5%E8%AE%B0/"/>
     
-      <category term="Hammerspoon" scheme="http://yoursite.com/tags/Hammerspoon/"/>
+      <category term="Hammerspoon" scheme="https://yiti.ml/tags/Hammerspoon/"/>
     
-      <category term="Anki" scheme="http://yoursite.com/tags/Anki/"/>
+      <category term="Anki" scheme="https://yiti.ml/tags/Anki/"/>
     
-      <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
+      <category term="QDay" scheme="https://yiti.ml/tags/QDay/"/>
     
   </entry>
   
   <entry>
     <title>About Me (English)</title>
-    <link href="http://yoursite.com/2020/01/17/fy024/"/>
-    <id>http://yoursite.com/2020/01/17/fy024/</id>
+    <link href="https://yiti.ml/2020/01/17/fy024/"/>
+    <id>https://yiti.ml/2020/01/17/fy024/</id>
     <published>2020-01-17T03:48:35.000Z</published>
     <updated>2020-03-12T10:27:32.011Z</updated>
     
@@ -549,17 +549,17 @@
     </summary>
     
     
-      <category term="翻译" scheme="http://yoursite.com/categories/translate/"/>
+      <category term="翻译" scheme="https://yiti.ml/categories/translate/"/>
     
     
-      <category term="ME" scheme="http://yoursite.com/tags/ME/"/>
+      <category term="ME" scheme="https://yiti.ml/tags/ME/"/>
     
   </entry>
   
   <entry>
     <title>我看池子</title>
-    <link href="http://yoursite.com/2020/01/13/xx022/"/>
-    <id>http://yoursite.com/2020/01/13/xx022/</id>
+    <link href="https://yiti.ml/2020/01/13/xx022/"/>
+    <id>https://yiti.ml/2020/01/13/xx022/</id>
     <published>2020-01-13T05:12:09.000Z</published>
     <updated>2020-03-17T09:11:54.892Z</updated>
     
@@ -579,17 +579,17 @@
     </summary>
     
     
-      <category term="观点" scheme="http://yoursite.com/categories/opinions/"/>
+      <category term="观点" scheme="https://yiti.ml/categories/opinions/"/>
     
     
-      <category term="池子" scheme="http://yoursite.com/tags/%E6%B1%A0%E5%AD%90/"/>
+      <category term="池子" scheme="https://yiti.ml/tags/%E6%B1%A0%E5%AD%90/"/>
     
   </entry>
   
   <entry>
     <title>雪花飘飘，北风萧萧</title>
-    <link href="http://yoursite.com/2020/01/10/fy023/"/>
-    <id>http://yoursite.com/2020/01/10/fy023/</id>
+    <link href="https://yiti.ml/2020/01/10/fy023/"/>
+    <id>https://yiti.ml/2020/01/10/fy023/</id>
     <published>2020-01-10T01:45:38.000Z</published>
     <updated>2020-03-13T01:45:38.525Z</updated>
     
@@ -612,19 +612,19 @@
     </summary>
     
     
-      <category term="土嗨英语" scheme="http://yoursite.com/categories/prankenglish/"/>
+      <category term="土嗨英语" scheme="https://yiti.ml/categories/prankenglish/"/>
     
     
-      <category term="雪花" scheme="http://yoursite.com/tags/%E9%9B%AA%E8%8A%B1/"/>
+      <category term="雪花" scheme="https://yiti.ml/tags/%E9%9B%AA%E8%8A%B1/"/>
     
-      <category term="雪崩" scheme="http://yoursite.com/tags/%E9%9B%AA%E5%B4%A9/"/>
+      <category term="雪崩" scheme="https://yiti.ml/tags/%E9%9B%AA%E5%B4%A9/"/>
     
   </entry>
   
   <entry>
     <title>缘木求鱼 Barking Up The Wrong Tree</title>
-    <link href="http://yoursite.com/2020/01/10/fy022/"/>
-    <id>http://yoursite.com/2020/01/10/fy022/</id>
+    <link href="https://yiti.ml/2020/01/10/fy022/"/>
+    <id>https://yiti.ml/2020/01/10/fy022/</id>
     <published>2020-01-10T01:35:31.000Z</published>
     <updated>2020-01-10T01:41:50.699Z</updated>
     
@@ -643,10 +643,10 @@
     </summary>
     
     
-      <category term="翻译" scheme="http://yoursite.com/categories/translate/"/>
+      <category term="翻译" scheme="https://yiti.ml/categories/translate/"/>
     
     
-      <category term="成语" scheme="http://yoursite.com/tags/%E6%88%90%E8%AF%AD/"/>
+      <category term="成语" scheme="https://yiti.ml/tags/%E6%88%90%E8%AF%AD/"/>
     
   </entry>
   
