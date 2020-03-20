@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source Sans Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Trebuchet MS:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
@@ -158,6 +158,359 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/26/xx026/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="二狗子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Death by Routine">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/26/xx026/" class="post-title-link" itemprop="url">VirtualBox 安装 Archlinux 指南</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-26 17:06 / Modified: 23:40" itemprop="dateCreated datePublished" datetime="2020-02-26T17:06:39+08:00">2020-02-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%A9%E5%99%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">利器</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/02/26/xx026/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/26/xx026/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近无聊，就找来 <code>archlinux</code> 在虚拟机玩。去 <a href="https://wiki.archlinux.org/index.php/Installation_guide" target="_blank" rel="noopener">archlinux wiki</a> 上看了一下教程。以下是操作过程：</p>
+<h2 id="安装基础系统"><a href="# 安装基础系统" class="headerlink" title="安装基础系统"></a>安装基础系统 </h2><p> 下载镜像，放到光驱，光驱启动。联网，测试连接。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@mxarch ~ # dhcpcd</span><br><span class="line">root@mxarch ~ # ping archlinux.org -c 4</span><br></pre></td></tr></table></figure>
+<p>更新系统时间：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@mxarch ~ # timedatectl set-ntp true</span><br></pre></td></tr></table></figure>
+<p>磁盘分区并格式化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@mxarch ~ # fdisk -l</span><br><span class="line">root@mxarch ~ # fdisk &#x2F;dev&#x2F;sda</span><br></pre></td></tr></table></figure>
+<p>运用 fdisk 对硬盘进行分区，因为只是自己玩，在这里就只分三个分区，第一个为 boot 启动分区(200M)，第二个为 swap 交换分区(2G)，第三个作为系统盘(剩余的空间)。分区创建完成后进行格式化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@mxarch ~ # mkfs.ext4 &#x2F;dev&#x2F;sda1</span><br><span class="line">root@mxarch ~ # mkfs.ext4 &#x2F;dev&#x2F;sda3</span><br><span class="line">root@mxarch ~ # mkswap &#x2F;dev&#x2F;sda2</span><br><span class="line">root@mxarch ~ # swapon &#x2F;dev&#x2F;sda2</span><br></pre></td></tr></table></figure>
+<p>挂载分区：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@mxarch ~ # mount &#x2F;dev&#x2F;sda3 &#x2F;mnt</span><br><span class="line">root@mxarch ~ # mkdir &#x2F;mnt&#x2F;boot</span><br><span class="line">root@mxarch ~ # mount &#x2F;dev&#x2F;sda1 &#x2F;mnt&#x2F;boot</span><br></pre></td></tr></table></figure>
+<p>修改软件源并更新：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@mxarch ~ # vi &#x2F;etc&#x2F;pacman.d&#x2F;mirrorlist</span><br><span class="line">root@mxarch ~ # pacman -Sy</span><br></pre></td></tr></table></figure>
+<p>将中国的源放在问文件最前面，个人觉得中科大 (ustc) 和 163 的源比较好。<br>安装系统到磁盘：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@mxarch ~ # pacstrap &#x2F;mnt base linux linux-firmware</span><br></pre></td></tr></table></figure>
+<h2 id="配置基本系统"><a href="# 配置基本系统" class="headerlink" title="配置基本系统"></a>配置基本系统 </h2><p> 将分区表写入系统配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@mxarch ~ # genfstab -U &#x2F;mnt &gt;&gt; &#x2F;mnt&#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+<p>进入磁盘系统：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@mxarch ~ # arch-chroot &#x2F;mnt</span><br></pre></td></tr></table></figure>
+<p>设置时区：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@mxarch &#x2F;]# ln -sf &#x2F;usr&#x2F;share&#x2F;zoneinfo&#x2F;Asia&#x2F;Shanghai &#x2F;etc&#x2F;localtime</span><br><span class="line">[root@mxarch &#x2F;]# hwclock --systohc --utc</span><br></pre></td></tr></table></figure>
+<p>设置语言：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@mxarch &#x2F;]# vi &#x2F;etc&#x2F;locale.gen</span><br><span class="line">[root@mxarch &#x2F;]# locale-gen</span><br></pre></td></tr></table></figure>
+<p>将你需要的语言格式的注释去掉，默认是全部注释。<br>配置主机名并配置网络，建议安装 NetworkManager，并用 <code>systemctl start/enable</code> 启动服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># systemctl disable dhcpcd.service</span><br><span class="line"># systemctl enable NetworkManager.service</span><br></pre></td></tr></table></figure>
+
+<p>设置 root 密码并添加普通用户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@mxarch &#x2F;]# passwd</span><br><span class="line">[root@mxarch &#x2F;]# useradd -m 用户名</span><br><span class="line">[root@mxarch &#x2F;]# passwd 用户名</span><br></pre></td></tr></table></figure>
+
+<p>安装引导程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@mxarch &#x2F;]# pacman -S grub</span><br><span class="line">[root@mxarch &#x2F;]# grub-install --target&#x3D;i386-pc --recheck &#x2F;dev&#x2F;sda</span><br><span class="line">[root@mxarch &#x2F;]# grub-mkconfig -o &#x2F;boot&#x2F;grub&#x2F;grub.cfg</span><br></pre></td></tr></table></figure>
+
+<p>完成安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@mxarch &#x2F;]# exit</span><br><span class="line">[root@mxarch &#x2F;]# umount -R &#x2F;mnt</span><br><span class="line">[root@mxarch &#x2F;]# poweroff</span><br></pre></td></tr></table></figure>
+<p>将 iso 镜像移除重新启动 <code>archlinux</code>。</p>
+<h2 id="安装桌面环境"><a href="# 安装桌面环境" class="headerlink" title="安装桌面环境"></a>安装桌面环境 </h2><p> 安装显卡驱动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S virtualbox-guest-utils #虚拟机</span><br><span class="line"># pacman -S xf86-video-intel mesa-libgl libva-intel-driver libva</span><br></pre></td></tr></table></figure>
+
+<p>安装 xorg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@mxarch ~]# pacman -S xorg-server</span><br></pre></td></tr></table></figure>
+<p>安装桌面环境：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@mxarch ~]# pacman -S xfce4 xfce4-goodies</span><br><span class="line">[root@mxarch ~]# pacman -S lightdm lightdm-gtk-greeter</span><br><span class="line">[root@mxarch ~]# systemctl enable lightdm</span><br></pre></td></tr></table></figure>
+
+<h2 id="中文相关问题"><a href="# 中文相关问题" class="headerlink" title="中文相关问题"></a>中文相关问题 </h2><p> 中文乱码一般都是因为没有中文字体：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S wqy-zenhei ttf-fireflysung</span><br></pre></td></tr></table></figure>
+<p>中文输入法 <br> 修改配置文件，<code>~/.xinitrc</code> or <code>~/.xprofile</code>加入以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GTK_IM_MODULE&#x3D;fcitx</span><br><span class="line">export QT_IM_MODULE&#x3D;fcitx</span><br><span class="line">export XMODIFIERS&#x3D;&quot;@im&#x3D;fcitx&quot;</span><br></pre></td></tr></table></figure>
+<p>完成。</p>
+<h2 id="结论"><a href="# 结论" class="headerlink" title="结论"></a>结论 </h2><p> 安装之后的推荐设置可以参考 <a href="https://wiki.archlinux.org/index.php/General_recommendations" target="_blank" rel="noopener"> 官方文档 </a>。<br> 测试下来的话，表现最好的桌面环境是，<code>Cinnamon</code>，or <code>Xfce</code>，or <code>awesome</code>。另外新系统是最小系统，所以如果要编译东西的话，需要提前安装，<code>make</code>, <code>gcc</code>, <code>sudo</code>, <code>fakeroot</code>等。</p>
+<p>PS.</p>
+<ul>
+<li>HiDPI 的支持，需要安装 <code>xrandr</code>。然后把 <code>xrandr --dpi 192</code> 这条命令加入开机启动项。</li>
+<li>安装一些额外的字体使用下面的命令：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pacman -S ttf-dejavu ttf-droid ttf-fira-mono ttf-fira-sans ttf-liberation ttf-linux-libertine-g ttf-oxygen ttf-tlwg ttf-ubuntu-font-family</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果 <code>sudoer</code> 错误出现，在 <code>：$vim /etc/sudoers</code> 中加入当前用户即可。</li>
+<li><code>zsh</code> 切换使用命令 <code>chsh -s /bin/zsh</code>, if not sure, check where zsh is by <code>which zsh</code> .</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/18/xx025/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="二狗子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Death by Routine">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/18/xx025/" class="post-title-link" itemprop="url">Quarantined Day22</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-18 18:19" itemprop="dateCreated datePublished" datetime="2020-02-18T18:19:42+08:00">2020-02-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-13 15:51" itemprop="dateModified" datetime="2020-03-13T15:51:00+08:00">2020-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">日记</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/02/18/xx025/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/18/xx025/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p> 昨天一天基本上是在 Duolingo，Vocabulary Builder，Planet Earth，Cucumber ，刷推特，刷微博，听写 BBC 的过程中度过的。下午还点了炸鸡吃的好饱。晚上是西葫芦米饭。吃得好饱。再看看其实这 20 几天，都是这么过来的。</p>
+</blockquote>
+<p> 今天，出门转了一圈，街上的人明显多了起来，但是十家店铺可能只有一家开门。水果店，面包店开的比较多。小区门口的检查已经换成了健康码——一个支付宝协助开发的二维码一样的东西，以及身份证和出入证。</p>
+<p> 去超市采购了一些蔬菜，可以说，<strong> 这些日子我已经把自己会做的菜都做过一遍了。</strong> 可以在这里列一下：</p>
+<ul>
+<li> 咸肉春笋，也就是腌笃鲜。</li>
+<li> 西葫芦西红柿 </li>
+<li> 芹菜香干 </li>
+<li> 豆角肉片焖面（肉片可以是五花肉，也可以用鸡胸肉代替）</li>
+<li> 各种清炒青菜 </li>
+<li> 豆腐鱼汤 </li>
+<li> 排骨萝卜汤 </li>
+<li> 葱油拌面 </li>
+<li> 西红柿炒鸡蛋 </li>
+<li> 炒蘑菇 </li>
+<li> 面疙瘩（西红柿蛋汤）</li>
+<li> 煲仔饭（腊肉）</li>
+<li> 油泼面（瞎泼的）</li>
+</ul>
+<p> 基本上也就这样了.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/16/xx024/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="二狗子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Death by Routine">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/16/xx024/" class="post-title-link" itemprop="url">Quarantined Day20</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-16 20:21" itemprop="dateCreated datePublished" datetime="2020-02-16T20:21:24+08:00">2020-02-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-13 15:51" itemprop="dateModified" datetime="2020-03-13T15:51:12+08:00">2020-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">日记</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/02/16/xx024/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/16/xx024/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="20-22，-time"><a href="#20-22，-time" class="headerlink" title="20:22，@time"></a>20:22，@time</h2><p>第二十天。早上起来，太阳很好，拉开窗帘，一片阳光洒进。大风降温，把雾霾什么的都吹走了。开阔，但是，确实冷。无聊的很，去 <strong>EdX</strong> 找了一个前端开发的课程学习，讲 <em>Html&amp;CSS</em> ，其实之前都了解过，只是系统的学习一下，到了晚上已经到了 Module3 讲图片和表格的处理了。主要学习了：</p>
+<ul>
+<li>HTML 和 CSS 如何组合起来工作的。</li>
+<li>VS Code 安装了几个相关的插件，写起来很快。</li>
+<li>HTML 的 padding 和 margin 的区别。</li>
+<li>HTML 的 class 和 ID。</li>
+<li>CSS 的 selector， pseudo selector？ 以及 Cascading （这个没有搞很懂）。</li>
+</ul>
+<p>然后，觉得这几天情绪比较低落，所以就打开电视看了看昨天的 <strong> 新闻联播 </strong>。很管用。（微笑）<br> 接着去做饭，吃了酸辣粉，加饺子，加面条。吃到后面已经觉得不好吃了。太酸了。</p>
+<p>然后，出门去超市采购，看到楼下新贴出来的通知，健康码可以出入小区了，不过还是需要身份证。之前发下来的出入证已经不用了。疫情似乎控制下来了。至少这里来说是这样的。</p>
+<p>然后，就着外卖看了十几年前大学时候看的 PBS 的纪录片，China in Revolution 。还是会触动。</p>
+<p>估计复工也就是一周之内的事情了。希望英国签证申请中心也尽快复工。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/15/xx023/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -256,312 +609,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/13/xx022/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="二狗子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Death by Routine">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/13/xx022/" class="post-title-link" itemprop="url">我看池子</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-13 13:12" itemprop="dateCreated datePublished" datetime="2020-01-13T13:12:09+08:00">2020-01-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-17 17:11" itemprop="dateModified" datetime="2020-03-17T17:11:54+08:00">2020-03-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%A7%82%E7%82%B9/" itemprop="url" rel="index">
-                    <span itemprop="name">观点</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/01/13/xx022/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/13/xx022/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p> 转自池子微博。很好玩的自我吐槽。来自：<a href="https://weibo.com/ttarticle/p/show?id=2309404352398876352343" target="_blank" rel="noopener"> 原文链接 </a>。</p>
-</blockquote>
-<p>/</p>
-<blockquote>
-<p> 能力越低的人，越容易对自己产生过高的评价。</p>
-</blockquote>
-<p> 池子是一河南人，这我倒是没什么看法，大家对他有看法别从这上面找角度，显得狭隘，让他逮住，小机灵一抖，他占上风。但他天天冒充北京人，这就让人讨厌了，我们不清楚，你自己心里不知道自己哪儿人吗。我们北京孩子不像他那样贼眉鼠眼的，他心里门儿清，说自己是北京人就像踮脚走路，显个儿。</p>
-<p> 咱们评价人就从业务开始抓，不拐弯抹角走花边，你们也别说我没看过他作品不能评价他，你们他妈有什么资格评价我啊。第一他没作品，录几个破综艺当自己作品吗？他好意思说吗？要脸就不能说这话。第二我看过他演出，有一次在热力猫，跟朋友聊事儿碰见他们演出，当时方家胡同两边门窗还都没封死，文化氛围自由，我没站起来骂他，但他那够不上叫脱口秀，真就是瞎胡闹。之后在老书虫一次卖票的演出，我没注意有他，凑巧也看了，勉强算是脱口秀，算是摸到脱口秀的脚后跟。国内我看的不多，但是美国的单口我看的不少，目前看，如果说世界范围内脱口秀是一个巨人，中国这块是脚底板，他就是脱口秀脚后跟的死皮，简单说就是不行。他下一句就是现在大环境不好，可赶紧闭嘴，没能耐就是没能耐，20 多岁怪大环境不好，30 岁还不得天天买刀片儿。</p>
-<p> 有人能弄好啊，北京单口有一帮人弄挺好，看过一人的现场，好像叫周奇墨，是有东西，是真实力，听说他俩还认得。你眼睛睁不开，不能好好听听，好好学学吗，身边也有李诞，你是瞎还是真觉得自己怪不错的。当时说是李诞发现的他，估计是觉得他年轻，有冲劲，那是因为人家都上学去了，可不显他年轻有个性。我也承认他是有个性，有个性就往外现吗，谁还没个性了，我闺女上初中天天练腹肌，还写诗，有个性不，我看那驴就特别有个性，推磨推挺好。</p>
-<p> 他最火那节目，吐槽大会，那不叫脱口秀，也不叫喜剧，公司给他抬上去玩一个身份差，他在火的人里面最不火，他在不火的人里面又最火，拱上台说一些蠢话，捅这个挠那个，观众看了乐，台上都觉得他是一横空出世小二逼。观众发笑是因为他的行为，不是内容，这有很大差别，就像你看猴子抽烟，你觉得好笑，抽烟这件事好笑吗，不好笑，吸烟有害，得肺癌，死得快。你是觉得，猴儿也能抽烟，绝了。他自己是猴儿都没意识到，以为自己写稿小天才，以为文字语言这块儿玩的特别好。能力越低的人，越容易对自己产生过高的评价。</p>
-<p> 大家都知道，池子特喜欢抖机灵，这个词不是我提的，是网友总结的，把他的所有能力归为抖机灵，一针见血，他也没法反驳。我看过他在网上发这个发那个，他以为自己玩摇滚玩自由，以为自己多高深多巧妙，以为谁都看不出来你想什么，还不是被人民群众制裁了，虽说你爱国不爱国倒不是多大的罪，但是你活该挨骂，群众早晚治你。</p>
-<p> 其实非要公平的说，很多人都抖机灵，文人画家演戏的卖菜的，都不例外。但是网上有两个极端，就网上有，正一个反一个，有些人正着抖机灵，令人作呕，但是挑不出毛病。另一些人是反着抖机灵，漏洞百出图一乐呵。我们这是自由的时代，你说不清是谁对谁错，都该骂，抖机灵都该骂。综上，池子该骂。</p>
-<p> 我还看过他采访，人记者问他，池子老师，想对现在的年轻人说点什么，他还就真说点什么，你自己还是年轻的臭狗屎呢你还妄想教年轻人了？首先管他叫池子老师，这是娱乐圈的臭毛病，这种年轻晚辈不能直接叫他名字吗？都管他叫老师，他听的多了，敢给别人指路你信不信。池子老师，这四个字说出口真不恶心吗？在虚拟世界有点粉丝还真以为自己说话有道理了，网友们别给他这个错觉了，让这位年轻人醒一醒，对他自己也有好处。他有一段时间还说自己是当代鲁迅，我听了天灵盖疼，他还鲁迅，他是卤七里香，当代血栓差不多，鲁迅是他亲爹都得把他活活掐死。</p>
-<p> 池子粉丝最欣赏他的一点就是真实，我能理解，忽然有这么一个说大话的博主还挺新鲜的，但是他什么过硬的能力也没有啊。逮着别人有个小瑕疵就跳起来喊，说别人多假多虚，娱乐圈怎么门没关严实让他混进来也是疏忽。你玩人家的游戏得遵守人家的规则，打乒乓球规定球必须落在桌面上，你非往别人脸上打，说，裁判，我很真实。你的病情很真实。</p>
-<p> 天天这个假，那个假，蹭热度都蹭破皮了，还说自己不是蹭热度，那我们单位有个假山你怎么不去揭发检举呢，特别假的假山。有点本事，业务能力过硬，那你算个人物，最怕这种人，什么都不会，脑门上刻两个字，真实，生怕别人不知道。我觉得猪还真实呢，吃饱了睡，睡好了吃，长胖了被人吃，烤乳猪整个端上来给你看，一辈子就在这盘子里，是不是比你真实，人家也就临死了喊两声，你呢，你比猪会上网是真的。</p>
-<p> 你要是跟他讲道理，问他为什么这样，问到核心问题，我给你打包票，他会说，我就是个傻逼。他算盘打得精啊，他都说自己是傻逼了，你有什么办法，看似把自己放到大便里面，你就不敢碰他，但是他心里觉得你们是大便。要记住，他是傻逼，也是大便。</p>
-<p> 不写了，恶心他，我是看他最近消停了写两笔，要不然网友说我蹭他热度，那多恶心，网友比池子还恶心。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/02/xx021/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="二狗子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Death by Routine">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/02/xx021/" class="post-title-link" itemprop="url">换回鼠须管</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-02 18:17" itemprop="dateCreated datePublished" datetime="2020-01-02T18:17:12+08:00">2020-01-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-10 22:37" itemprop="dateModified" datetime="2020-03-10T22:37:47+08:00">2020-03-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%88%A9%E5%99%A8/" itemprop="url" rel="index">
-                    <span itemprop="name">利器</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/01/02/xx021/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/02/xx021/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>搜狗用了好久，一卡一卡的，还是换回鼠须管吧。不是错觉，鼠须管就是快，快如闪电，丝般顺滑。唯一的缺点就是 <strong> 词库太小 </strong> 了。</p>
-<p>百度搜到一个 <a href="http://tieba.baidu.com/p/4412790328" target="_blank" rel="noopener"> 大词库以及导入方法</a>，写到这里：</p>
-<blockquote>
-<p>下载地址：<a href="http://pan.baidu.com/s/1dDRUHaD" target="_blank" rel="noopener">http://pan.baidu.com/s/1dDRUHaD</a><br>导入方法[首先把词库和管理工具拷贝到 ~/Library/Rime 目录下]：</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Library/Rime</span><br><span class="line">killall Squirrel</span><br><span class="line">chmod +x rime_dict_manager</span><br><span class="line">./rime_dict_manager -i luna_pinyin luwenbin006.txt</span><br></pre></td></tr></table></figure>
-<p>感谢作者：<code>luwenbin@163.com</code>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/xx0011/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="二狗子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Death by Routine">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/13/xx0011/" class="post-title-link" itemprop="url">让所有人都发声是这个时代的错误？</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-13 21:09" itemprop="dateCreated datePublished" datetime="2019-11-13T21:09:07+08:00">2019-11-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-17 17:10" itemprop="dateModified" datetime="2020-03-17T17:10:03+08:00">2020-03-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%A7%82%E7%82%B9/" itemprop="url" rel="index">
-                    <span itemprop="name">观点</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/11/13/xx0011/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/13/xx0011/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>一个女演员在微博上晒了好多攻击她的微博用户，有人说她网络霸凌，有人说做的好。挂出来的东西在下面可怜兮兮说自己被人欺负了，然后被人翻出来之前骂这个女演员的好多不堪入目的话。</p>
-<p>自己喜欢 <em>pubg</em> 这个游戏，看比赛，也打游戏。所以也去虎扑的专区发过帖子。虎扑的绝地求生专区一片乌烟瘴气，各种脑残粉，带节奏，黑粉白粉反串黑。有个解说比赛的时候把国外队伍的名字念错了，我去发了个帖子指正了一下。这样一个简单的事情，下面的评论都让你惊讶、错愕、愤怒。你会想，这些人的脑子进了多少水？然后你发现自己的帖子被版主删了。这个世界会好吗？不会。</p>
-<p>也算是 7788 了解了中文互联网论坛上的讨论环境。这样的经历对每个人都可能有些新奇。</p>
-<p><a href="https://weibo.com/darling33?from=feed&loc=nickname" target="_blank" rel="noopener">陈生大王 </a> 说，「<strong> 我们这个时代，有钱人不说话，读书人不说话，名人不说话，越没有发言成本的人，说话声音越大。</strong>」</p>
-<p><a href="https://weibo.com/bourdieu" target="_blank" rel="noopener">理咚葆</a> 谈到这个，说「这是啥年代啊，连菜人都开始思考了。」。说得比较文雅。</p>
-<p><a href="https://weibo.com/5992829552" target="_blank" rel="noopener">河森堡</a> 倒是觉得这个「尴尬过程」是互联网发展过程中的必然，「和当年印刷术的推广一样」。</p>
-<blockquote>
-<p>PS. 现在转微博上的东西根本不敢放链接，因为转眼可能就没了。神奇的中国互联网。</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -629,20 +681,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">115</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">193</span>
+        <span class="site-state-item-count">218</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
