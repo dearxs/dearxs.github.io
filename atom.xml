@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Death by Routine</title>
   
-  <subtitle>It&#39;s my life.</subtitle>
+  <subtitle>Beyond translation.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -10,7 +10,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>二狗子</name>
+    <name>MaxXD</name>
     
   </author>
   
@@ -38,7 +38,7 @@
     </summary>
     
     
-      <category term="利器" scheme="http://yoursite.com/categories/%E5%88%A9%E5%99%A8/"/>
+      <category term="利器" scheme="http://yoursite.com/categories/tools/"/>
     
     
       <category term="tools" scheme="http://yoursite.com/tags/tools/"/>
@@ -74,7 +74,7 @@
     </summary>
     
     
-      <category term="土嗨英语" scheme="http://yoursite.com/categories/%E5%9C%9F%E5%97%A8%E8%8B%B1%E8%AF%AD/"/>
+      <category term="土嗨英语" scheme="http://yoursite.com/categories/prankenglish/"/>
     
     
       <category term="马男" scheme="http://yoursite.com/tags/%E9%A9%AC%E7%94%B7/"/>
@@ -107,7 +107,7 @@
     </summary>
     
     
-      <category term="利器" scheme="http://yoursite.com/categories/%E5%88%A9%E5%99%A8/"/>
+      <category term="利器" scheme="http://yoursite.com/categories/tools/"/>
     
     
       <category term="Saber" scheme="http://yoursite.com/tags/Saber/"/>
@@ -138,7 +138,7 @@
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/categories/%E6%97%A5%E8%AE%B0/"/>
+      <category term="日记" scheme="http://yoursite.com/categories/diary/"/>
     
     
       <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
@@ -169,7 +169,7 @@
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/categories/%E6%97%A5%E8%AE%B0/"/>
+      <category term="日记" scheme="http://yoursite.com/categories/diary/"/>
     
     
       <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
@@ -198,7 +198,7 @@
     </summary>
     
     
-      <category term="利器" scheme="http://yoursite.com/categories/%E5%88%A9%E5%99%A8/"/>
+      <category term="利器" scheme="http://yoursite.com/categories/tools/"/>
     
     
       <category term="域名" scheme="http://yoursite.com/tags/%E5%9F%9F%E5%90%8D/"/>
@@ -227,7 +227,7 @@
     </summary>
     
     
-      <category term="利器" scheme="http://yoursite.com/categories/%E5%88%A9%E5%99%A8/"/>
+      <category term="利器" scheme="http://yoursite.com/categories/tools/"/>
     
     
       <category term="MacOS" scheme="http://yoursite.com/tags/MacOS/"/>
@@ -260,7 +260,7 @@
     </summary>
     
     
-      <category term="盛世如斯" scheme="http://yoursite.com/categories/%E7%9B%9B%E4%B8%96%E5%A6%82%E6%96%AF/"/>
+      <category term="盛世如斯" scheme="http://yoursite.com/categories/vivalachina/"/>
     
     
       <category term="病毒" scheme="http://yoursite.com/tags/%E7%97%85%E6%AF%92/"/>
@@ -291,7 +291,7 @@
     </summary>
     
     
-      <category term="利器" scheme="http://yoursite.com/categories/%E5%88%A9%E5%99%A8/"/>
+      <category term="利器" scheme="http://yoursite.com/categories/tools/"/>
     
     
       <category term="archlinux" scheme="http://yoursite.com/tags/archlinux/"/>
@@ -324,7 +324,7 @@
     </summary>
     
     
-      <category term="翻译" scheme="http://yoursite.com/categories/%E7%BF%BB%E8%AF%91/"/>
+      <category term="翻译" scheme="http://yoursite.com/categories/translate/"/>
     
     
       <category term="Youtube" scheme="http://yoursite.com/tags/Youtube/"/>
@@ -355,7 +355,7 @@
     </summary>
     
     
-      <category term="翻译" scheme="http://yoursite.com/categories/%E7%BF%BB%E8%AF%91/"/>
+      <category term="翻译" scheme="http://yoursite.com/categories/translate/"/>
     
     
       <category term="剩余价值" scheme="http://yoursite.com/tags/%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC/"/>
@@ -389,7 +389,7 @@
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/categories/%E6%97%A5%E8%AE%B0/"/>
+      <category term="日记" scheme="http://yoursite.com/categories/diary/"/>
     
     
       <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
@@ -422,7 +422,7 @@
     </summary>
     
     
-      <category term="利器" scheme="http://yoursite.com/categories/%E5%88%A9%E5%99%A8/"/>
+      <category term="利器" scheme="http://yoursite.com/categories/tools/"/>
     
     
       <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
@@ -454,7 +454,7 @@
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/categories/%E6%97%A5%E8%AE%B0/"/>
+      <category term="日记" scheme="http://yoursite.com/categories/diary/"/>
     
     
       <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
@@ -483,7 +483,7 @@
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/categories/%E6%97%A5%E8%AE%B0/"/>
+      <category term="日记" scheme="http://yoursite.com/categories/diary/"/>
     
     
       <category term="QDay" scheme="http://yoursite.com/tags/QDay/"/>
@@ -512,7 +512,7 @@
     </summary>
     
     
-      <category term="日记" scheme="http://yoursite.com/categories/%E6%97%A5%E8%AE%B0/"/>
+      <category term="日记" scheme="http://yoursite.com/categories/diary/"/>
     
     
       <category term="盛世如斯" scheme="http://yoursite.com/tags/%E7%9B%9B%E4%B8%96%E5%A6%82%E6%96%AF/"/>
@@ -549,7 +549,7 @@
     </summary>
     
     
-      <category term="翻译" scheme="http://yoursite.com/categories/%E7%BF%BB%E8%AF%91/"/>
+      <category term="翻译" scheme="http://yoursite.com/categories/translate/"/>
     
     
       <category term="ME" scheme="http://yoursite.com/tags/ME/"/>
@@ -579,7 +579,7 @@
     </summary>
     
     
-      <category term="观点" scheme="http://yoursite.com/categories/%E8%A7%82%E7%82%B9/"/>
+      <category term="观点" scheme="http://yoursite.com/categories/opinions/"/>
     
     
       <category term="池子" scheme="http://yoursite.com/tags/%E6%B1%A0%E5%AD%90/"/>
@@ -612,7 +612,7 @@
     </summary>
     
     
-      <category term="土嗨英语" scheme="http://yoursite.com/categories/%E5%9C%9F%E5%97%A8%E8%8B%B1%E8%AF%AD/"/>
+      <category term="土嗨英语" scheme="http://yoursite.com/categories/prankenglish/"/>
     
     
       <category term="雪花" scheme="http://yoursite.com/tags/%E9%9B%AA%E8%8A%B1/"/>
@@ -643,7 +643,7 @@
     </summary>
     
     
-      <category term="翻译" scheme="http://yoursite.com/categories/%E7%BF%BB%E8%AF%91/"/>
+      <category term="翻译" scheme="http://yoursite.com/categories/translate/"/>
     
     
       <category term="成语" scheme="http://yoursite.com/tags/%E6%88%90%E8%AF%AD/"/>
