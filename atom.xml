@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Khan&#39;s Lab</title>
   
-  <subtitle>Explore Experience Evolve</subtitle>
+  <subtitle>Explore &amp; Evolve</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yiti.ml/"/>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Custom snippets in VSCode</title>
-    <link href="https://yiti.ml/2020/03/19/xx035/"/>
-    <id>https://yiti.ml/2020/03/19/xx035/</id>
+    <link href="https://yiti.ml/xx035/"/>
+    <id>https://yiti.ml/xx035/</id>
     <published>2020-03-19T03:35:10.000Z</published>
     <updated>2020-03-19T03:36:15.063Z</updated>
     
@@ -51,8 +51,8 @@
   
   <entry>
     <title>低谷之后还是低谷</title>
-    <link href="https://yiti.ml/2020/03/12/fy027/"/>
-    <id>https://yiti.ml/2020/03/12/fy027/</id>
+    <link href="https://yiti.ml/fy027/"/>
+    <id>https://yiti.ml/fy027/</id>
     <published>2020-03-12T14:58:54.000Z</published>
     <updated>2020-03-12T15:17:07.867Z</updated>
     
@@ -85,8 +85,8 @@
   
   <entry>
     <title>使用 Saber 搭建 Github Pages</title>
-    <link href="https://yiti.ml/2020/03/10/xx034/"/>
-    <id>https://yiti.ml/2020/03/10/xx034/</id>
+    <link href="https://yiti.ml/xx034/"/>
+    <id>https://yiti.ml/xx034/</id>
     <published>2020-03-10T07:04:10.000Z</published>
     <updated>2020-03-13T07:51:22.489Z</updated>
     
@@ -116,8 +116,8 @@
   
   <entry>
     <title>Quarantined Day36</title>
-    <link href="https://yiti.ml/2020/03/03/xx033/"/>
-    <id>https://yiti.ml/2020/03/03/xx033/</id>
+    <link href="https://yiti.ml/xx033/"/>
+    <id>https://yiti.ml/xx033/</id>
     <published>2020-03-03T13:39:36.000Z</published>
     <updated>2020-03-13T07:51:38.335Z</updated>
     
@@ -147,8 +147,8 @@
   
   <entry>
     <title>Quarantined Day35</title>
-    <link href="https://yiti.ml/2020/03/02/xx032/"/>
-    <id>https://yiti.ml/2020/03/02/xx032/</id>
+    <link href="https://yiti.ml/xx032/"/>
+    <id>https://yiti.ml/xx032/</id>
     <published>2020-03-02T15:39:04.000Z</published>
     <updated>2020-03-13T07:51:53.275Z</updated>
     
@@ -178,8 +178,8 @@
   
   <entry>
     <title>申请域名并绑定 GitHub Page</title>
-    <link href="https://yiti.ml/2020/03/01/xx031/"/>
-    <id>https://yiti.ml/2020/03/01/xx031/</id>
+    <link href="https://yiti.ml/xx031/"/>
+    <id>https://yiti.ml/xx031/</id>
     <published>2020-03-01T15:06:02.000Z</published>
     <updated>2020-03-01T15:25:12.305Z</updated>
     
@@ -207,8 +207,8 @@
   
   <entry>
     <title>MacOS 上的平铺窗口管理器 Amethyst 使用</title>
-    <link href="https://yiti.ml/2020/02/29/xx030/"/>
-    <id>https://yiti.ml/2020/02/29/xx030/</id>
+    <link href="https://yiti.ml/xx030/"/>
+    <id>https://yiti.ml/xx030/</id>
     <published>2020-02-29T05:30:38.000Z</published>
     <updated>2020-02-29T05:59:07.553Z</updated>
     
@@ -238,8 +238,8 @@
   
   <entry>
     <title>我们距离真相更近了吗？</title>
-    <link href="https://yiti.ml/2020/02/27/xx029/"/>
-    <id>https://yiti.ml/2020/02/27/xx029/</id>
+    <link href="https://yiti.ml/xx029/"/>
+    <id>https://yiti.ml/xx029/</id>
     <published>2020-02-27T14:39:12.000Z</published>
     <updated>2020-03-13T07:52:38.931Z</updated>
     
@@ -269,8 +269,8 @@
   
   <entry>
     <title>Archlinux 下面 i3 窗口管理器的安装设置</title>
-    <link href="https://yiti.ml/2020/02/27/xx028/"/>
-    <id>https://yiti.ml/2020/02/27/xx028/</id>
+    <link href="https://yiti.ml/xx028/"/>
+    <id>https://yiti.ml/xx028/</id>
     <published>2020-02-27T14:26:55.000Z</published>
     <updated>2020-02-29T08:21:35.801Z</updated>
     
@@ -304,8 +304,8 @@
   
   <entry>
     <title>纯洁 2020</title>
-    <link href="https://yiti.ml/2020/02/27/fy026/"/>
-    <id>https://yiti.ml/2020/02/27/fy026/</id>
+    <link href="https://yiti.ml/fy026/"/>
+    <id>https://yiti.ml/fy026/</id>
     <published>2020-02-27T02:19:11.000Z</published>
     <updated>2020-03-12T10:25:57.827Z</updated>
     
@@ -335,8 +335,8 @@
   
   <entry>
     <title>How to live our life</title>
-    <link href="https://yiti.ml/2020/02/27/fy025/"/>
-    <id>https://yiti.ml/2020/02/27/fy025/</id>
+    <link href="https://yiti.ml/fy025/"/>
+    <id>https://yiti.ml/fy025/</id>
     <published>2020-02-27T02:11:07.000Z</published>
     <updated>2020-02-27T15:47:55.044Z</updated>
     
@@ -364,8 +364,8 @@
   
   <entry>
     <title>Quarantined Day30</title>
-    <link href="https://yiti.ml/2020/02/26/xx027/"/>
-    <id>https://yiti.ml/2020/02/26/xx027/</id>
+    <link href="https://yiti.ml/xx027/"/>
+    <id>https://yiti.ml/xx027/</id>
     <published>2020-02-26T13:58:56.000Z</published>
     <updated>2020-03-13T07:52:56.202Z</updated>
     
@@ -402,8 +402,8 @@
   
   <entry>
     <title>VirtualBox 安装 Archlinux 指南</title>
-    <link href="https://yiti.ml/2020/02/26/xx026/"/>
-    <id>https://yiti.ml/2020/02/26/xx026/</id>
+    <link href="https://yiti.ml/xx026/"/>
+    <id>https://yiti.ml/xx026/</id>
     <published>2020-02-26T09:06:39.000Z</published>
     <updated>2020-02-26T15:40:44.538Z</updated>
     
@@ -433,8 +433,8 @@
   
   <entry>
     <title>Quarantined Day22</title>
-    <link href="https://yiti.ml/2020/02/18/xx025/"/>
-    <id>https://yiti.ml/2020/02/18/xx025/</id>
+    <link href="https://yiti.ml/xx025/"/>
+    <id>https://yiti.ml/xx025/</id>
     <published>2020-02-18T10:19:42.000Z</published>
     <updated>2020-03-13T07:51:00.367Z</updated>
     
@@ -463,8 +463,8 @@
   
   <entry>
     <title>Quarantined Day20</title>
-    <link href="https://yiti.ml/2020/02/16/xx024/"/>
-    <id>https://yiti.ml/2020/02/16/xx024/</id>
+    <link href="https://yiti.ml/xx024/"/>
+    <id>https://yiti.ml/xx024/</id>
     <published>2020-02-16T12:21:24.000Z</published>
     <updated>2020-03-13T07:51:12.517Z</updated>
     
@@ -492,8 +492,8 @@
   
   <entry>
     <title>Quarantined Day19</title>
-    <link href="https://yiti.ml/2020/02/15/xx023/"/>
-    <id>https://yiti.ml/2020/02/15/xx023/</id>
+    <link href="https://yiti.ml/xx023/"/>
+    <id>https://yiti.ml/xx023/</id>
     <published>2020-02-15T07:09:38.000Z</published>
     <updated>2020-03-17T09:12:14.155Z</updated>
     
@@ -529,8 +529,8 @@
   
   <entry>
     <title>About Me</title>
-    <link href="https://yiti.ml/2020/01/17/fy024/"/>
-    <id>https://yiti.ml/2020/01/17/fy024/</id>
+    <link href="https://yiti.ml/fy024/"/>
+    <id>https://yiti.ml/fy024/</id>
     <published>2020-01-17T03:48:35.000Z</published>
     <updated>2020-03-25T04:30:48.086Z</updated>
     
@@ -563,8 +563,8 @@
   
   <entry>
     <title>我看池子</title>
-    <link href="https://yiti.ml/2020/01/13/xx022/"/>
-    <id>https://yiti.ml/2020/01/13/xx022/</id>
+    <link href="https://yiti.ml/xx022/"/>
+    <id>https://yiti.ml/xx022/</id>
     <published>2020-01-13T05:12:09.000Z</published>
     <updated>2020-03-17T09:11:54.892Z</updated>
     
@@ -593,8 +593,8 @@
   
   <entry>
     <title>雪花飘飘，北风萧萧</title>
-    <link href="https://yiti.ml/2020/01/10/fy023/"/>
-    <id>https://yiti.ml/2020/01/10/fy023/</id>
+    <link href="https://yiti.ml/fy023/"/>
+    <id>https://yiti.ml/fy023/</id>
     <published>2020-01-10T01:45:38.000Z</published>
     <updated>2020-03-13T01:45:38.525Z</updated>
     
@@ -628,8 +628,8 @@
   
   <entry>
     <title>缘木求鱼 Barking Up The Wrong Tree</title>
-    <link href="https://yiti.ml/2020/01/10/fy022/"/>
-    <id>https://yiti.ml/2020/01/10/fy022/</id>
+    <link href="https://yiti.ml/fy022/"/>
+    <id>https://yiti.ml/fy022/</id>
     <published>2020-01-10T01:35:31.000Z</published>
     <updated>2020-01-10T01:41:50.699Z</updated>
     
