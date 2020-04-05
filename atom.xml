@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yiti.ml/"/>
-  <updated>2020-03-26T00:01:57.993Z</updated>
+  <updated>2020-04-05T00:39:00.166Z</updated>
   <id>https://yiti.ml/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How I Use Hammerspoon PART1</title>
+    <link href="https://yiti.ml/aa091/"/>
+    <id>https://yiti.ml/aa091/</id>
+    <published>2020-04-05T00:34:36.000Z</published>
+    <updated>2020-04-05T00:39:00.166Z</updated>
+    
+    <content type="html"><![CDATA[<p>According to the wording on <a href="https://www.hammerspoon.org/" target="_blank" rel="noopener">its official website</a>, <code>Hammerspoon</code> is:</p><blockquote><p>a tool for powerful automation of OS X.</p></blockquote><p>I use it with <code>Amethyst</code> to manage the windows, and apart from that, here is how I use it:</p><ul><li>text editing with markdown;</li><li>work/rest timer;</li><li>double confirm when pressing <code>⌘ + Q</code>;</li><li>one hotkey to toggle day&amp;night mode;</li></ul><h2 id="pomo-amp-slowq"><a href="#pomo-amp-slowq" class="headerlink" title="pomo &amp; slowq"></a><code>pomo</code> &amp; <code>slowq</code></h2><p>Credits go to @dbmrq, <a href="https://github.com/dbmrq/dotfiles/tree/master/home/.hammerspoon" target="_blank" rel="noopener">dotfiles/home/.hammerspoon at master · dbmrq/dotfiles · GitHub</a></p><p>I use two of his plugins (let’s just call it that).</p><p>For slowq, it prevents you from quit your app when you accidentally press ⌘+Q, instead you need to hold for 2/3s to quit.</p><p>To use it, download the file, put it in your <code>~/.hammerspoon/</code> folder, then you just need to put one line of code in your <code>init.lua</code>:</p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span> “slowq”</span><br></pre></td></tr></table></figure><p>For work timer, you just need to add 3 lines of code:</p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span> <span class="string">"pomo"</span></span><br><span class="line"></span><br><span class="line">hs.hotkey.bind(hyper, <span class="string">'9'</span>, <span class="string">'🍅.enabled.🍅'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span> pom_enable() <span class="keyword">end</span>)</span><br><span class="line">hs.hotkey.bind(hyper, <span class="string">'0'</span>, <span class="string">'🍅.disabled.🍅'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span> pom_disable() <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure><p>Then just press the hotkey and you will get a progress bar at the top of your screen, i just did a little tweek around, change the work/rest to emojis 🍅/☕️.</p><h2 id="Hotkey-to-toggle-night-mode"><a href="#Hotkey-to-toggle-night-mode" class="headerlink" title="Hotkey to toggle night mode"></a>Hotkey to toggle night mode</h2><p>First, I googled and write a little function in lua to read applescript files.</p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- function: read applescript content. copy content to data</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">applescript_reader</span><span class="params">(string)</span></span></span><br><span class="line">    <span class="keyword">local</span> <span class="built_in">path</span> = <span class="built_in">string</span></span><br><span class="line">    <span class="keyword">local</span> file = <span class="built_in">io</span>.<span class="built_in">open</span>(<span class="built_in">path</span>, <span class="string">"r"</span>)</span><br><span class="line">    <span class="keyword">local</span> data = file:<span class="built_in">read</span>(<span class="string">"*a"</span>)</span><br><span class="line">    file:<span class="built_in">close</span>()</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><p>Then I assign a hotkey to call the applescript, long way…</p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hotkey.bind(</span><br><span class="line">    <span class="string">"alt"</span>,</span><br><span class="line">    <span class="string">"D"</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">        applescript(applescript_reader(<span class="string">"/Users/daLi.h/.hammerspoon/your.applescript"</span>))</span><br><span class="line">        alert.show(<span class="string">"🌚...Dark or Light...🌝"</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>The content of the applescript file is simple:</p><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"System Events"</span></span><br><span class="line"><span class="keyword">tell</span> appearance preferences</span><br><span class="line"><span class="keyword">if</span> dark mode <span class="keyword">is</span> <span class="literal">false</span> <span class="keyword">then</span></span><br><span class="line"><span class="keyword">set</span> dark mode <span class="keyword">to</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">set</span> dark mode <span class="keyword">to</span> <span class="literal">false</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span>%</span><br></pre></td></tr></table></figure><p>For window management and text editing part, let’s talk about it next time.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;According to the wording on &lt;a href=&quot;https://www.hammerspoon.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;its official website&lt;/a&gt;,
+        
+      
+    
+    </summary>
+    
+    
+      <category term="利器" scheme="https://yiti.ml/categories/tools/"/>
+    
+    
+      <category term="hammerspoon, mac" scheme="https://yiti.ml/tags/hammerspoon-mac/"/>
+    
+  </entry>
   
   <entry>
     <title>Unprecedented Postpone</title>
@@ -635,36 +664,6 @@
       <category term="linux" scheme="https://yiti.ml/tags/linux/"/>
     
       <category term="arch" scheme="https://yiti.ml/tags/arch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Quarantined Day22</title>
-    <link href="https://yiti.ml/xx025/"/>
-    <id>https://yiti.ml/xx025/</id>
-    <published>2020-02-18T10:19:42.000Z</published>
-    <updated>2020-03-13T07:51:00.367Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p> 昨天一天基本上是在 Duolingo，Vocabulary Builder，Planet Earth，Cucumber ，刷推特，刷微博，听写 BBC 的过程中度过的。下午还点了炸鸡吃的好饱。晚上是西葫芦米饭。吃得好饱。再看看其实这 20 几天，都是这么过来的。</p></blockquote><p> 今天，出门转了一圈，街上的人明显多了起来，但是十家店铺可能只有一家开门。水果店，面包店开的比较多。小区门口的检查已经换成了健康码——一个支付宝协助开发的二维码一样的东西，以及身份证和出入证。</p><p> 去超市采购了一些蔬菜，可以说，<strong> 这些日子我已经把自己会做的菜都做过一遍了。</strong> 可以在这里列一下：</p><ul><li> 咸肉春笋，也就是腌笃鲜。</li><li> 西葫芦西红柿 </li><li> 芹菜香干 </li><li> 豆角肉片焖面（肉片可以是五花肉，也可以用鸡胸肉代替）</li><li> 各种清炒青菜 </li><li> 豆腐鱼汤 </li><li> 排骨萝卜汤 </li><li> 葱油拌面 </li><li> 西红柿炒鸡蛋 </li><li> 炒蘑菇 </li><li> 面疙瘩（西红柿蛋汤）</li><li> 煲仔饭（腊肉）</li><li> 油泼面（瞎泼的）</li></ul><p> 基本上也就这样了.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt; 昨天一天基本上是在 Duolingo，Vocabulary Builder，Planet Earth，Cucumber ，刷推特，刷微博，听写 BBC 的过程中度过的。下午还点了炸鸡吃的好饱。晚上是西葫芦米饭。吃得好饱。再看看其实这 20
-        
-      
-    
-    </summary>
-    
-    
-      <category term="日记" scheme="https://yiti.ml/categories/diary/"/>
-    
-    
-      <category term="QDay" scheme="https://yiti.ml/tags/QDay/"/>
     
   </entry>
   

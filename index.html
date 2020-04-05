@@ -158,6 +158,104 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://yiti.ml/aa091/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dali Khan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Khan's Lab">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/aa091/" class="post-title-link" itemprop="url">How I Use Hammerspoon PART1</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-05 08:34" itemprop="dateCreated datePublished" datetime="2020-04-05T08:34:36+08:00">2020-04-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">利器</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>According to the wording on <a href="https://www.hammerspoon.org/" target="_blank" rel="noopener">its official website</a>, <code>Hammerspoon</code> is:</p>
+<blockquote>
+<p>a tool for powerful automation of OS X.</p>
+</blockquote>
+<p>I use it with <code>Amethyst</code> to manage the windows, and apart from that, here is how I use it:</p>
+<ul>
+<li>text editing with markdown;</li>
+<li>work/rest timer;</li>
+<li>double confirm when pressing <code>⌘ + Q</code>;</li>
+<li>one hotkey to toggle day&amp;night mode;</li>
+</ul>
+<h2 id="pomo-amp-slowq"><a href="#pomo-amp-slowq" class="headerlink" title="pomo &amp; slowq"></a><code>pomo</code> &amp; <code>slowq</code></h2><p>Credits go to @dbmrq, <a href="https://github.com/dbmrq/dotfiles/tree/master/home/.hammerspoon" target="_blank" rel="noopener">dotfiles/home/.hammerspoon at master · dbmrq/dotfiles · GitHub</a></p>
+<p>I use two of his plugins (let’s just call it that).</p>
+<p>For slowq, it prevents you from quit your app when you accidentally press ⌘+Q, instead you need to hold for 2/3s to quit.</p>
+<p>To use it, download the file, put it in your <code>~/.hammerspoon/</code> folder, then you just need to put one line of code in your <code>init.lua</code>:</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span> “slowq”</span><br></pre></td></tr></table></figure>
+
+<p>For work timer, you just need to add 3 lines of code:</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span> <span class="string">"pomo"</span></span><br><span class="line"></span><br><span class="line">hs.hotkey.bind(hyper, <span class="string">'9'</span>, <span class="string">'🍅.enabled.🍅'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span> pom_enable() <span class="keyword">end</span>)</span><br><span class="line">hs.hotkey.bind(hyper, <span class="string">'0'</span>, <span class="string">'🍅.disabled.🍅'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span> pom_disable() <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Then just press the hotkey and you will get a progress bar at the top of your screen, i just did a little tweek around, change the work/rest to emojis 🍅/☕️.</p>
+<h2 id="Hotkey-to-toggle-night-mode"><a href="#Hotkey-to-toggle-night-mode" class="headerlink" title="Hotkey to toggle night mode"></a>Hotkey to toggle night mode</h2><p>First, I googled and write a little function in lua to read applescript files.</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- function: read applescript content. copy content to data</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">applescript_reader</span><span class="params">(string)</span></span></span><br><span class="line">    <span class="keyword">local</span> <span class="built_in">path</span> = <span class="built_in">string</span></span><br><span class="line">    <span class="keyword">local</span> file = <span class="built_in">io</span>.<span class="built_in">open</span>(<span class="built_in">path</span>, <span class="string">"r"</span>)</span><br><span class="line">    <span class="keyword">local</span> data = file:<span class="built_in">read</span>(<span class="string">"*a"</span>)</span><br><span class="line">    file:<span class="built_in">close</span>()</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>Then I assign a hotkey to call the applescript, long way…</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hotkey.bind(</span><br><span class="line">    <span class="string">"alt"</span>,</span><br><span class="line">    <span class="string">"D"</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">        applescript(applescript_reader(<span class="string">"/Users/daLi.h/.hammerspoon/your.applescript"</span>))</span><br><span class="line">        alert.show(<span class="string">"🌚...Dark or Light...🌝"</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>The content of the applescript file is simple:</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"System Events"</span></span><br><span class="line">	<span class="keyword">tell</span> appearance preferences</span><br><span class="line">		<span class="keyword">if</span> dark mode <span class="keyword">is</span> <span class="literal">false</span> <span class="keyword">then</span></span><br><span class="line">			<span class="keyword">set</span> dark mode <span class="keyword">to</span> <span class="literal">true</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">set</span> dark mode <span class="keyword">to</span> <span class="literal">false</span></span><br><span class="line">		<span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">tell</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span>%</span><br></pre></td></tr></table></figure>
+
+<p>For window management and text editing part, let’s talk about it next time.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://yiti.ml/aa999/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -425,79 +523,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://yiti.ml/xx035/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dali Khan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Khan's Lab">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/xx035/" class="post-title-link" itemprop="url">Custom snippets in VSCode</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-19 11:35" itemprop="dateCreated datePublished" datetime="2020-03-19T11:35:10+08:00">2020-03-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">利器</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Just tried the snippet in VSCode, it’s easy and has the potential to replace <code>atext</code>, given that aText does not work as expected.<br>This is how it looks, </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">"Layout the notepad": &#123;</span><br><span class="line">  	"prefix": "ddt",</span><br><span class="line">  	"body": [</span><br><span class="line">          "## WHAT I DID",</span><br><span class="line">          "- $0",</span><br><span class="line">          "## WHAT I WAS THINKING",</span><br><span class="line">          <span class="string">"-"</span></span><br><span class="line">  	],</span><br><span class="line">  	"description": "layout the markdown diary"</span><br></pre></td></tr></table></figure>
-
-<p><code>$0</code> is where the final cursor is;</p>
-<p>In this way, I can layout my diary by typing just <code>ddt</code>.</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## WHAT I DID</span></span><br><span class="line"><span class="bullet">- </span></span><br><span class="line"><span class="section">## WHAT I WAS THINKING</span></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -570,7 +595,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-count">144</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -583,7 +608,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">233</span>
+        <span class="site-state-item-count">234</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
