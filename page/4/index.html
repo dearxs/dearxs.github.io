@@ -214,8 +214,8 @@
 <p>Linux 下面有好多这种 Window Manager （简称 WM），比如 <code>i3wm</code>，比如 <code>awesome</code>，比如 <code>Sway</code>。苹果下面就比较少了，大家也都说苹果 MacOS 的窗口管理垃圾，类似的窗口管理有 <code>yabai</code> ，这个有点太复杂，所以我就用了一个比较简单的 <strong><code>Amethyst</code></strong> 。</p>
 <p>安装好，没有指南，没有设置文件，就直接启用了。然后看看设置，其实只需要记住几个快捷键就可以了。我把所有的快捷键都关了，只留下了四个：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">shift + option + ␣: 向前变换布局        </span><br><span class="line">shift + option + J: 顺时针变换窗口聚焦</span><br><span class="line">shift + option + F: 浮动当前聚焦窗口     </span><br><span class="line">shift + option + ↵: 将当前聚焦窗口作为主要窗口</span><br></pre></td></tr></table></figure>
-
-<p>日常使用这四个，完全够了。其他的如果需要再打开快捷键就可以。<br>下载以及全部快捷键可以在 <a href="https://ianyh.com/amethyst/" target="_blank" rel="noopener"> 官网找到</a>。</p>
+<p>日常使用这四个，完全够了。其他的如果需要再打开快捷键就可以。<br>
+下载以及全部快捷键可以在 <a href="https://ianyh.com/amethyst/" target="_blank" rel="noopener"> 官网找到</a>。</p>
 
       
     </div>
@@ -290,17 +290,20 @@
 <p> 其中的几处重点我可以帮忙划一下：</p>
 <blockquote>
 <ul>
-<li> 上海公共卫生中心党委书记卢洪洲接受采访时表示，上海公共卫生中心早在 1 月 5 日就提交了有关疫情的正式报告，然而过程却可以用「惊心动魄」来形容，「我们该做的都做了，但是非常遗憾，不该发生的事情还是发生了。」<br><code> 来自新京报稿件：公卫专家：临床角度不讲拐点，以疫情宣告结束为准）</code></li>
+<li> 上海公共卫生中心党委书记卢洪洲接受采访时表示，上海公共卫生中心早在 1 月 5 日就提交了有关疫情的正式报告，然而过程却可以用「惊心动魄」来形容，「我们该做的都做了，但是非常遗憾，不该发生的事情还是发生了。」<br>
+<code> 来自新京报稿件：公卫专家：临床角度不讲拐点，以疫情宣告结束为准）</code></li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li> 去年 12 月结束以前，多家基因测序公司都收到了新冠肺炎的样本，并将检测结果反馈给了医院和疾控系统，随即卫健委下发通知，要求销毁病例样本，且不得对外发布任何消息，一个巨大的不透明泡泡，从此紧紧包裹住了疫情进度的披露，直到突如其来的爆发。<br><code> 来自财新稿件：新冠病毒基因测序溯源：警报是何时拉响的 </code></li>
+<li> 去年 12 月结束以前，多家基因测序公司都收到了新冠肺炎的样本，并将检测结果反馈给了医院和疾控系统，随即卫健委下发通知，要求销毁病例样本，且不得对外发布任何消息，一个巨大的不透明泡泡，从此紧紧包裹住了疫情进度的披露，直到突如其来的爆发。<br>
+<code> 来自财新稿件：新冠病毒基因测序溯源：警报是何时拉响的 </code></li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li> 第二批专家组成员明确指出在武汉期间没有获得实情汇报，以致于无法获得「人传人」的核心证据，只有到了第三批专家组，也就是钟南山去的时候，医护人员感染的信息才捂不住了，导致整个事态出现了性质改变。<br><code> 来自财经稿件：专访卫健委派武汉第二批专家：为何没发现人传人 </code></li>
+<li> 第二批专家组成员明确指出在武汉期间没有获得实情汇报，以致于无法获得「人传人」的核心证据，只有到了第三批专家组，也就是钟南山去的时候，医护人员感染的信息才捂不住了，导致整个事态出现了性质改变。<br>
+<code> 来自财经稿件：专访卫健委派武汉第二批专家：为何没发现人传人 </code></li>
 </ul>
 </blockquote>
 <p> 为了避免断章取义，我也还是建议你们去阅读原文，完整标题我在上面都列出来了，善用搜索即可。</p>
@@ -385,16 +388,12 @@
           <p> 今天继续鼓捣虚拟机。记录一下用到的东西：</p>
 <p> 分辨率设置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xrandr --output Virtual1 --mode &quot;1920x1200&quot;</span><br><span class="line">xrandr -m #获得显示器名称 </span><br></pre></td></tr></table></figure>
-
 <p>Launcher <code>rofi</code>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bindsym $mod+d exec rofi -show drun</span><br><span class="line">bindsym $mod+d exec rofi -show window</span><br><span class="line"># 绑定两个快捷键就可以 </span><br></pre></td></tr></table></figure>
-
 <p>Get rid of the titlebar:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new_window none</span><br><span class="line">new_float normal</span><br><span class="line">hide_edge_borders both</span><br></pre></td></tr></table></figure>
-
 <p>Customize the statusbar:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp &#x2F;etc&#x2F;i3status.conf ~&#x2F;.config&#x2F;i3status&#x2F;config</span><br></pre></td></tr></table></figure>
-
 <p>Done.</p>
 <p> 参考到的文章有：</p>
 <ul>
@@ -470,7 +469,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>翻译并制作了 <a href="https://weibo.com/moooooonktang?from=profile&wvr=6" target="_blank" rel="noopener">@唐僧僧僧僧</a> 制作的 <a href="https://www.youtube.com/watch?v=HqMoQgOub6c" target="_blank" rel="noopener"> 纯洁 2020</a> 的字幕。也就是 MUMA 演唱的《纯洁 2016》的歌词。</p>
+          <p>翻译并制作了 <a href="https://weibo.com/moooooonktang?from=profile&amp;wvr=6" target="_blank" rel="noopener">@唐僧僧僧僧</a> 制作的 <a href="https://www.youtube.com/watch?v=HqMoQgOub6c" target="_blank" rel="noopener"> 纯洁 2020</a> 的字幕。也就是 MUMA 演唱的《纯洁 2016》的歌词。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">in a wierd dream</span><br><span class="line">i&#39;m so glad, that i become wind</span><br><span class="line">to and fro</span><br><span class="line">expecting something</span><br><span class="line"></span><br><span class="line">all the familiar things</span><br><span class="line">how will they change</span><br><span class="line">those young, those beautiful</span><br><span class="line">in the blink of an eye</span><br><span class="line"></span><br><span class="line">please don&#39;t say</span><br><span class="line">that is just raindrops</span><br><span class="line">leaving wet marks on your cheeks</span><br><span class="line">still don&#39;t know</span><br><span class="line">why they left</span><br><span class="line">only remember your eyes like the stars in the night sky</span><br><span class="line"></span><br><span class="line">with her</span><br><span class="line">the youth is sweet as fuck</span><br><span class="line">the childish game when you run</span><br><span class="line">let&#39;s compliment</span><br><span class="line">the burning flames</span><br><span class="line">tomorrow is as it is</span><br><span class="line">those gone will never come back</span><br><span class="line"></span><br><span class="line">staring at the sky</span><br><span class="line">have the dark clouds parted</span><br><span class="line">the hurting words</span><br><span class="line">have they turned into fresh flowers</span><br><span class="line"></span><br><span class="line">in your heart</span><br><span class="line">is there a kind of feeling</span><br><span class="line">like melting larva, like freezing seawater</span><br><span class="line"></span><br><span class="line">with her</span><br><span class="line">the youth is sweet as fuck</span><br><span class="line">the childish game when you run</span><br><span class="line">let&#39;s compliment</span><br><span class="line">the burning flames</span><br><span class="line">tomorrow is as it is</span><br><span class="line">those gone will never come back</span><br><span class="line"></span><br><span class="line">years later, i never forget</span><br><span class="line">in that strange room</span><br><span class="line">who, with his arms, built an island</span><br><span class="line">dragging all the darkness into his palms</span><br><span class="line"></span><br><span class="line">lucky that we are not just fooling around</span><br><span class="line">lucky that we all think it&#39;s just fooling around</span><br><span class="line"></span><br><span class="line">*no dream in those bustling places*</span><br><span class="line">*all i want, when i&#39;m back, is to be with you*</span><br></pre></td></tr></table></figure>
 <p>You can check it out on <a href="https://www.youtube.com/watch?v=HqMoQgOub6c" target="_blank" rel="noopener">Youtube</a> .</p>
 

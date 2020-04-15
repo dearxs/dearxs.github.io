@@ -172,7 +172,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/aa091/" class="post-title-link" itemprop="url">How I Use Hammerspoon PART1</a>
+            <a href="/aa091/" class="post-title-link" itemprop="url">How I Use Hammerspoon</a>
         </h1>
 
         <div class="post-meta">
@@ -207,7 +207,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>According to the wording on <a href="https://www.hammerspoon.org/" target="_blank" rel="noopener">its official website</a>, <code>Hammerspoon</code> is:</p>
+          <blockquote>
+<p>Part one, to be continued.</p>
+</blockquote>
+<p>According to the wording on <a href="https://www.hammerspoon.org/" target="_blank" rel="noopener">its official website</a>, <code>Hammerspoon</code> is:</p>
 <blockquote>
 <p>a tool for powerful automation of OS X.</p>
 </blockquote>
@@ -218,24 +221,22 @@
 <li>double confirm when pressing <code>⌘ + Q</code>;</li>
 <li>one hotkey to toggle day&amp;night mode;</li>
 </ul>
-<h2 id="pomo-amp-slowq"><a href="#pomo-amp-slowq" class="headerlink" title="pomo &amp; slowq"></a><code>pomo</code> &amp; <code>slowq</code></h2><p>Credits go to @dbmrq, <a href="https://github.com/dbmrq/dotfiles/tree/master/home/.hammerspoon" target="_blank" rel="noopener">dotfiles/home/.hammerspoon at master · dbmrq/dotfiles · GitHub</a></p>
+<h2 id="pomo-slowq"><code>pomo</code> &amp; <code>slowq</code></h2>
+<p>Credits go to @dbmrq, <a href="https://github.com/dbmrq/dotfiles/tree/master/home/.hammerspoon" target="_blank" rel="noopener">dotfiles/home/.hammerspoon at master · dbmrq/dotfiles · GitHub</a></p>
 <p>I use two of his plugins (let’s just call it that).</p>
 <p>For slowq, it prevents you from quit your app when you accidentally press ⌘+Q, instead you need to hold for 2/3s to quit.</p>
 <p>To use it, download the file, put it in your <code>~/.hammerspoon/</code> folder, then you just need to put one line of code in your <code>init.lua</code>:</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span> “slowq”</span><br></pre></td></tr></table></figure>
-
 <p>For work timer, you just need to add 3 lines of code:</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span> <span class="string">"pomo"</span></span><br><span class="line"></span><br><span class="line">hs.hotkey.bind(hyper, <span class="string">'9'</span>, <span class="string">'🍅.enabled.🍅'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span> pom_enable() <span class="keyword">end</span>)</span><br><span class="line">hs.hotkey.bind(hyper, <span class="string">'0'</span>, <span class="string">'🍅.disabled.🍅'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span> pom_disable() <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure>
-
 <p>Then just press the hotkey and you will get a progress bar at the top of your screen, i just did a little tweek around, change the work/rest to emojis 🍅/☕️.</p>
-<h2 id="Hotkey-to-toggle-night-mode"><a href="#Hotkey-to-toggle-night-mode" class="headerlink" title="Hotkey to toggle night mode"></a>Hotkey to toggle night mode</h2><p>First, I googled and write a little function in lua to read applescript files.</p>
+<h2 id="Hotkey-to-toggle-night-mode">Hotkey to toggle night mode</h2>
+<p>First, I googled and write a little function in lua to read applescript files.</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- function: read applescript content. copy content to data</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">applescript_reader</span><span class="params">(string)</span></span></span><br><span class="line">    <span class="keyword">local</span> <span class="built_in">path</span> = <span class="built_in">string</span></span><br><span class="line">    <span class="keyword">local</span> file = <span class="built_in">io</span>.<span class="built_in">open</span>(<span class="built_in">path</span>, <span class="string">"r"</span>)</span><br><span class="line">    <span class="keyword">local</span> data = file:<span class="built_in">read</span>(<span class="string">"*a"</span>)</span><br><span class="line">    file:<span class="built_in">close</span>()</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>Then I assign a hotkey to call the applescript, long way…</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hotkey.bind(</span><br><span class="line">    <span class="string">"alt"</span>,</span><br><span class="line">    <span class="string">"D"</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">        applescript(applescript_reader(<span class="string">"/Users/daLi.h/.hammerspoon/your.applescript"</span>))</span><br><span class="line">        alert.show(<span class="string">"🌚...Dark or Light...🌝"</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <p>The content of the applescript file is simple:</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"System Events"</span></span><br><span class="line">	<span class="keyword">tell</span> appearance preferences</span><br><span class="line">		<span class="keyword">if</span> dark mode <span class="keyword">is</span> <span class="literal">false</span> <span class="keyword">then</span></span><br><span class="line">			<span class="keyword">set</span> dark mode <span class="keyword">to</span> <span class="literal">true</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">set</span> dark mode <span class="keyword">to</span> <span class="literal">false</span></span><br><span class="line">		<span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">tell</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span>%</span><br></pre></td></tr></table></figure>
-
 <p>For window management and text editing part, let’s talk about it next time.</p>
 
       
@@ -321,7 +322,7 @@
 </blockquote>
 <p>不过，奥运圣火仍会一直燃烧，作为希望的象征。</p>
 <blockquote>
-<p>The Olympic Flames will remain lit in Japan and serve as a symbol of hope for the world. </p>
+<p>The Olympic Flames will remain lit in Japan and serve as a symbol of hope for the world.</p>
 </blockquote>
 <p>推特上流行的热搜（trending）也从 <code>#tokyo2020</code> 变成了 <code>#tokyo2021</code> 。</p>
 <p>奥运会延期对我们这些观众可能只是比赛推迟，但对那些苦苦训练了思念的运动员们来说，这意味着他们还要继续努力训练 365 天。  <em>Feel for them.</em></p>
@@ -398,30 +399,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="你要有做人的底线"><a href="# 你要有做人的底线" class="headerlink" title="你要有做人的底线"></a>你要有做人的底线 </h2><p><strong>XZ 粉丝偷袭 AO3</strong> 这个事情估计大家都听说了。事情的来来龙去脉网上已经有很多文章讲了，我就不赘述了。</p>
-<p>这件事最后的结果是：</p>
+          <h2 id="你要有做人的底线"> 你要有做人的底线 </h2>
+<p><strong>XZ 粉丝偷袭 AO3</strong> 这个事情估计大家都听说了。事情的来来龙去脉网上已经有很多文章讲了，我就不赘述了。</p>
+<p> 这件事最后的结果是：</p>
 <ul>
 <li>AO3 被墙；</li>
 <li>XZ 工作室以及肖战全球后援会道歉；</li>
 <li>XZ 丢了代言，败了路人缘；</li>
 </ul>
-<p>简直一地鸡毛。</p>
-<p>推特用户 <a href="https://twitter.com/TheBratOllie" target="_blank" rel="noopener">@TheBratOllie</a> 说，</p>
+<p> 简直一地鸡毛。</p>
+<p> 推特用户 <a href="https://twitter.com/TheBratOllie" target="_blank" rel="noopener">@TheBratOllie</a> 说，</p>
 <blockquote>
 <p>XZ 粉丝：我不喜欢 ao3 的同人文 我就举报；ao3 的粉丝：ao3 被墙 我去骂肖战 去给他的电视剧打一星。这就是中国的缩影。一些人不允许别人与自己有不同的想法和喜好。一些人遇到不爽要发泄，却抓不到主要矛，找不到应该背锅的对象，或者单纯就是惹不起不敢讲。于是找个八竿子打不着的软柿子捏来泻火。</p>
 </blockquote>
-<p>像极了电影《寄生虫》里的场景，对不对？住地下室的底层人互相打的头破血流，尸体横陈，住地上的人拍拍身上的尘土，光鲜如故。</p>
-<p>一地鸡毛之后，国内互联网不能访问的网站又多了一个。义愤填膺地举报的粉丝们不知道的是，今天被封杀的是一个网站，明天被封杀的可能就是视若无睹神明的 <code>idol</code> 。</p>
-<p>他们招来的这只手握权力的猛虎，在经历过这样的事情之后，只会越来越肆无忌惮（<code>unscrupulous</code>）。</p>
-<p>阿尔帕西诺 1963 年凭借《闻香识女人》（<em>Scent of a Woman</em>）获得奥斯卡最佳男主角奖。电影中，他扮演的上校在最后的听证会上的演讲铿锵有力。</p>
+<p> 像极了电影《寄生虫》里的场景，对不对？住地下室的底层人互相打的头破血流，尸体横陈，住地上的人拍拍身上的尘土，光鲜如故。</p>
+<p> 一地鸡毛之后，国内互联网不能访问的网站又多了一个。义愤填膺地举报的粉丝们不知道的是，今天被封杀的是一个网站，明天被封杀的可能就是视若无睹神明的 <code>idol</code> 。</p>
+<p> 他们招来的这只手握权力的猛虎，在经历过这样的事情之后，只会越来越肆无忌惮（<code>unscrupulous</code>）。</p>
+<p> 阿尔帕西诺 1963 年凭借《闻香识女人》（<em>Scent of a Woman</em>）获得奥斯卡最佳男主角奖。电影中，他扮演的上校在最后的听证会上的演讲铿锵有力。</p>
 <blockquote>
-<p>I don’t know if Charlie’s silence here today is right or wrong. I’m not a judge or jury. But I can tell you this: he won’t <strong>sell anybody out</strong>（出卖别人） to buy his future!! </p>
-<p>And that, my friends, is called <strong>integrity</strong>! That’s called courage! Now that’s the stuff leaders should be made of. </p>
-<p>Now I have come to the crossroads in my life. I always knew what the right path was. Without exception, I knew. But I never took it. You know why? It was too damn hard. </p>
+<p>I don’t know if Charlie’s silence here today is right or wrong. I’m not a judge or jury. But I can tell you this: he won’t <strong>sell anybody out</strong>（出卖别人） to buy his future!!</p>
+<p>And that, my friends, is called <strong>integrity</strong>! That’s called courage! Now that’s the stuff leaders should be made of.</p>
+<p>Now I have come to the crossroads in my life. I always knew what the right path was. Without exception, I knew. But I never took it. You know why? It was too damn hard.</p>
 <p>* 我一直都知道那条路是正确的。无一例外，我都知道。但是我从来没走过那些路。知道为什么吗？那条路太他妈艰难了。</p>
 </blockquote>
-<p>改变社会可能很难，但是，我们应该能做到的，是要求自己做一个正直、诚实的人。</p>
-<p>*<em>Be a man of integrity. *</em></p>
+<p> 改变社会可能很难，但是，我们应该能做到的，是要求自己做一个正直、诚实的人。</p>
+<p>**Be a man of integrity. **</p>
 <!--[Highland-WordCountGoal-Start]
 1000
 [Highland-WordCountGoal-End]-->
@@ -496,16 +498,25 @@
           <blockquote>
 <p> 注：公众号有图，这里没图，因为弄图床要备案，而我不想费心去备案。</p>
 </blockquote>
-<p> 美国股票市场史无前例第三次熔断 ，金融市场一片哀嚎。<br> 我们就抓住这个机会，从各种新闻标题里学习一下「股票狂跌」到底有多少种说法。</p>
-<p><strong>ABC</strong>: Markets <strong>plummets</strong> despite Fed intervention<br> 尽管美联储出手干预，股票市场仍旧暴跌 </p>
+<p> 美国股票市场史无前例第三次熔断 ，金融市场一片哀嚎。<br>
+我们就抓住这个机会，从各种新闻标题里学习一下「股票狂跌」到底有多少种说法。</p>
+<p><strong>ABC</strong>: Markets <strong>plummets</strong> despite Fed intervention<br>
+尽管美联储出手干预，股票市场仍旧暴跌 </p>
 <p>plummet 指的就是直线下降，暴跌。如下图。</p>
-<p> 还有一个极为类似的标题：<br><strong>USA Today</strong>: Markets <strong>crater</strong> even after Fed intervenes to calm Markets</p>
-<p> 这里的 <strong>crater</strong> 跟 plummet 类似，美国俚语，指股票暴跌或者交易失败。原意是炮弹炸出来的弹坑，火山口那种。<br> 图 </p>
-<p> 接着来，<br><strong>CNN</strong>: Dow and US stocks are set to <strong>plunge</strong> again<br> 美股肯定还会继续跳水 </p>
+<p> 还有一个极为类似的标题：<br>
+<strong>USA Today</strong>: Markets <strong>crater</strong> even after Fed intervenes to calm Markets</p>
+<p> 这里的 <strong>crater</strong> 跟 plummet 类似，美国俚语，指股票暴跌或者交易失败。原意是炮弹炸出来的弹坑，火山口那种。<br>
+图 </p>
+<p> 接着来，<br>
+<strong>CNN</strong>: Dow and US stocks are set to <strong>plunge</strong> again<br>
+美股肯定还会继续跳水 </p>
 <p><strong>Plunge</strong> 原意是「跳水」，这里就是指像跳水一样直线下降。</p>
-<p> 还有华盛顿邮报，<br><strong>Washington Post</strong>: US stocks <strong>nosedive</strong></p>
+<p> 还有华盛顿邮报，<br>
+<strong>Washington Post</strong>: US stocks <strong>nosedive</strong></p>
 <p><strong>Nosedive</strong> 指的是飞机向下俯冲，nose dive ，鼻子向下跳水，一头扎下去，所以这种暴跌可不可怕？指的就是 <em>sudden sharp drop</em> 。</p>
-<p> 还有彭博社，<br><strong>Bloomberg</strong>: Stocks <strong>Sink</strong> More Than 10% in US<br> 美股下跌超百分之十 </p>
+<p> 还有彭博社，<br>
+<strong>Bloomberg</strong>: Stocks <strong>Sink</strong> More Than 10% in US<br>
+美股下跌超百分之十 </p>
 <p> 这个简单 <strong>Sink</strong>，下沉，下降。简洁明了。</p>
 <p> 至于股票熔断是什么，咱也不知道，就不乱发表意见了。</p>
 

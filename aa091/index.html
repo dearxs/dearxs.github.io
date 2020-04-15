@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"yiti.ml","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="According to the wording on its official website, Hammerspoon is:  a tool for powerful automation of OS X.  I use it with Amethyst to manage the windows, and apart from that, here is how I use it:  te">
+  <meta name="description" content="Part one, to be continued.  According to the wording on its official website, Hammerspoon is:  a tool for powerful automation of OS X.  I use it with Amethyst to manage the windows, and apart from th">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How I Use Hammerspoon PART1">
+<meta property="og:title" content="How I Use Hammerspoon">
 <meta property="og:url" content="https://yiti.ml/aa091/index.html">
 <meta property="og:site_name" content="Khan&#39;s Lab">
-<meta property="og:description" content="According to the wording on its official website, Hammerspoon is:  a tool for powerful automation of OS X.  I use it with Amethyst to manage the windows, and apart from that, here is how I use it:  te">
+<meta property="og:description" content="Part one, to be continued.  According to the wording on its official website, Hammerspoon is:  a tool for powerful automation of OS X.  I use it with Amethyst to manage the windows, and apart from th">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-05T00:34:36.000Z">
-<meta property="article:modified_time" content="2020-04-05T00:39:00.166Z">
+<meta property="article:modified_time" content="2020-04-13T10:07:48.605Z">
 <meta property="article:author" content="Dali Khan">
 <meta property="article:tag" content="hammerspoon, mac">
 <meta name="twitter:card" content="summary">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>How I Use Hammerspoon PART1 | Khan's Lab</title>
+  <title>How I Use Hammerspoon | Khan's Lab</title>
   
 
 
@@ -176,7 +176,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          How I Use Hammerspoon PART1
+          How I Use Hammerspoon
         </h1>
 
         <div class="post-meta">
@@ -211,7 +211,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>According to the wording on <a href="https://www.hammerspoon.org/" target="_blank" rel="noopener">its official website</a>, <code>Hammerspoon</code> is:</p>
+        <blockquote>
+<p>Part one, to be continued.</p>
+</blockquote>
+<p>According to the wording on <a href="https://www.hammerspoon.org/" target="_blank" rel="noopener">its official website</a>, <code>Hammerspoon</code> is:</p>
 <blockquote>
 <p>a tool for powerful automation of OS X.</p>
 </blockquote>
@@ -222,24 +225,22 @@
 <li>double confirm when pressing <code>⌘ + Q</code>;</li>
 <li>one hotkey to toggle day&amp;night mode;</li>
 </ul>
-<h2 id="pomo-amp-slowq"><a href="#pomo-amp-slowq" class="headerlink" title="pomo &amp; slowq"></a><code>pomo</code> &amp; <code>slowq</code></h2><p>Credits go to @dbmrq, <a href="https://github.com/dbmrq/dotfiles/tree/master/home/.hammerspoon" target="_blank" rel="noopener">dotfiles/home/.hammerspoon at master · dbmrq/dotfiles · GitHub</a></p>
+<h2 id="pomo-slowq"><code>pomo</code> &amp; <code>slowq</code></h2>
+<p>Credits go to @dbmrq, <a href="https://github.com/dbmrq/dotfiles/tree/master/home/.hammerspoon" target="_blank" rel="noopener">dotfiles/home/.hammerspoon at master · dbmrq/dotfiles · GitHub</a></p>
 <p>I use two of his plugins (let’s just call it that).</p>
 <p>For slowq, it prevents you from quit your app when you accidentally press ⌘+Q, instead you need to hold for 2/3s to quit.</p>
 <p>To use it, download the file, put it in your <code>~/.hammerspoon/</code> folder, then you just need to put one line of code in your <code>init.lua</code>:</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span> “slowq”</span><br></pre></td></tr></table></figure>
-
 <p>For work timer, you just need to add 3 lines of code:</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span> <span class="string">"pomo"</span></span><br><span class="line"></span><br><span class="line">hs.hotkey.bind(hyper, <span class="string">'9'</span>, <span class="string">'🍅.enabled.🍅'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span> pom_enable() <span class="keyword">end</span>)</span><br><span class="line">hs.hotkey.bind(hyper, <span class="string">'0'</span>, <span class="string">'🍅.disabled.🍅'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span> pom_disable() <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure>
-
 <p>Then just press the hotkey and you will get a progress bar at the top of your screen, i just did a little tweek around, change the work/rest to emojis 🍅/☕️.</p>
-<h2 id="Hotkey-to-toggle-night-mode"><a href="#Hotkey-to-toggle-night-mode" class="headerlink" title="Hotkey to toggle night mode"></a>Hotkey to toggle night mode</h2><p>First, I googled and write a little function in lua to read applescript files.</p>
+<h2 id="Hotkey-to-toggle-night-mode">Hotkey to toggle night mode</h2>
+<p>First, I googled and write a little function in lua to read applescript files.</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- function: read applescript content. copy content to data</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">applescript_reader</span><span class="params">(string)</span></span></span><br><span class="line">    <span class="keyword">local</span> <span class="built_in">path</span> = <span class="built_in">string</span></span><br><span class="line">    <span class="keyword">local</span> file = <span class="built_in">io</span>.<span class="built_in">open</span>(<span class="built_in">path</span>, <span class="string">"r"</span>)</span><br><span class="line">    <span class="keyword">local</span> data = file:<span class="built_in">read</span>(<span class="string">"*a"</span>)</span><br><span class="line">    file:<span class="built_in">close</span>()</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>Then I assign a hotkey to call the applescript, long way…</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hotkey.bind(</span><br><span class="line">    <span class="string">"alt"</span>,</span><br><span class="line">    <span class="string">"D"</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">        applescript(applescript_reader(<span class="string">"/Users/daLi.h/.hammerspoon/your.applescript"</span>))</span><br><span class="line">        alert.show(<span class="string">"🌚...Dark or Light...🌝"</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <p>The content of the applescript file is simple:</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"System Events"</span></span><br><span class="line">	<span class="keyword">tell</span> appearance preferences</span><br><span class="line">		<span class="keyword">if</span> dark mode <span class="keyword">is</span> <span class="literal">false</span> <span class="keyword">then</span></span><br><span class="line">			<span class="keyword">set</span> dark mode <span class="keyword">to</span> <span class="literal">true</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">set</span> dark mode <span class="keyword">to</span> <span class="literal">false</span></span><br><span class="line">		<span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">tell</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">tell</span>%</span><br></pre></td></tr></table></figure>
-
 <p>For window management and text editing part, let’s talk about it next time.</p>
 
     </div>
@@ -276,7 +277,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://yiti.ml/aa091/" title="How I Use Hammerspoon PART1">https://yiti.ml/aa091/</a>
+    <a href="https://yiti.ml/aa091/" title="How I Use Hammerspoon">https://yiti.ml/aa091/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -408,7 +409,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pomo-amp-slowq"><span class="nav-text">pomo &amp; slowq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hotkey-to-toggle-night-mode"><span class="nav-text">Hotkey to toggle night mode</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pomo-slowq"><span class="nav-text">pomo &amp; slowq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hotkey-to-toggle-night-mode"><span class="nav-text">Hotkey to toggle night mode</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
