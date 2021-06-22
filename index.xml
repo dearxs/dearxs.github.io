@@ -2,26 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>胸毛齐腰</title>
-    <link>https://robin4han.github.io/</link>
+    <link>https://dearxs.github.io/</link>
     <description>Recent content on 胸毛齐腰</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 22 Jun 2021 11:35:40 +0800</lastBuildDate><atom:link href="https://robin4han.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 22 Jun 2021 15:46:29 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>命令行文件管理器 vifm 简明使用指南</title>
+      <link>https://dearxs.github.io/posts/vifm/</link>
+      <pubDate>Tue, 22 Jun 2021 15:46:29 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/vifm/</guid>
+      <description>&lt;p&gt;这几天没有鼠标，管理器文件来触摸板摸来摸去难受，所以学习了基于 vim
+键盘操作的文件管理器 vifm 。简单记录一下常用的几个操作。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>关于作者</title>
-      <link>https://robin4han.github.io/about/</link>
+      <link>https://dearxs.github.io/about/</link>
       <pubDate>Tue, 22 Jun 2021 11:43:28 +0800</pubDate>
       
-      <guid>https://robin4han.github.io/about/</guid>
+      <guid>https://dearxs.github.io/about/</guid>
       <description>联系方式见网页顶部。</description>
     </item>
     
     <item>
       <title>Hello World</title>
-      <link>https://robin4han.github.io/posts/new-start/</link>
+      <link>https://dearxs.github.io/posts/new-start/</link>
       <pubDate>Tue, 22 Jun 2021 11:35:40 +0800</pubDate>
       
-      <guid>https://robin4han.github.io/posts/new-start/</guid>
+      <guid>https://dearxs.github.io/posts/new-start/</guid>
       <description>&lt;p&gt;重新开始吧。&lt;/p&gt;</description>
     </item>
     
