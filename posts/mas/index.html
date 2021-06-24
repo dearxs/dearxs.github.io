@@ -8,11 +8,12 @@
 	
 	
 	
-	<title>404 Page not found ｜ 胸毛齐腰</title>
+	<title>mas: macOS 命令行中的 App Store ｜ 胸毛齐腰</title>
 	
     
     
-    <meta name="description" content="best tools i use" />
+    <meta name="description" content="macOS 上的 App Store 中安装软件，总是遇到一只转圈圈，就是不安装，重试好几次，重启机器也没有用。最后找到了这个方法，命令行的 App Store，屡试不爽，分享出来。
+" />
     
 
     
@@ -94,14 +95,57 @@
     </div>
 </div>
         <div class="content">
-            <div class="page_tags">
-                <h1>(≥o≤)</h1>
-                <h2>404 Page Not Found</h2>
-                <h3><a href="https://dearxs.github.io">首页</a></h3>
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/mas/'>mas: macOS 命令行中的 App Store</a></h2>
+                        <span class="date">2021.06.22</span>
+                    </div>
+                    <div class="post_content markdown"><p>macOS 上的 App Store 中安装软件，总是遇到一只转圈圈，就是不安装，重试好几次，重启机器也没有用。最后找到了这个方法，命令行的 App Store，屡试不爽，分享出来。</p>
+<p>下面是该工具的 github 页面，能看懂的可以直接去看：
+<a href="https://github.com/mas-cli/mas">mas-cli/mas: Mac App Store command line interface</a></p>
+<p>看不懂的可以往下看，很简单的几个步骤。</p>
+<ol>
+<li>安装工具（<code>brew install mas</code>）</li>
+</ol>
+<p>安装好之后，如果你英文好，可以直接 <code>mas help</code> 看官方的指南。</p>
+<ol start="2">
+<li>搜索软件（<code>mas search 软件名</code>）
+这条命令就是搜索你要安装的软件，比如我搜索一个叫做 xnip 的截图软件（ps 超级好用），结果如下：</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mas search xnip
+  1059334054  截图(Jietu)-快速标注、便捷分享的截屏工具       (2.3.0)
+  1485844094  iShot-优秀的截图录屏工具                (1.7.7)
+  1544899154  白描截图取字                         (1.1)
+  1221250572  Xnip - Screenshot &amp; Annotation (2.2.0)
+  1497428978  超级右键-iRightMouse               (1.2.0)
+</code></pre></div><p>主义每个软件前面都有一串数字，复制以下，下一步需要使用。
+3. 安装软件 （<code>mas install 识别码</code>）</p>
+<p>如果你之前没有购买过此软件的话，你要使用这个命令 <code>mas purchase 识别码</code>。然后会跳出输入密码的窗口，输入之后就会安装了。</p>
+<p>如果你之前购买过该软件的话，你可以直接使用 <code>mas install 识别码</code>。就会直接安装所需的软件了。</p></div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://dearxs.github.io/tags/cli/">cli</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
             </div>
-            <div class="pagination"></div>
         </div>
     </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
     <footer class="footer">
     <div class="powered_by">
         <a href="http://www.gohugo.io/"> Built with Hugo, </a>

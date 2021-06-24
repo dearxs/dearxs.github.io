@@ -17,5 +17,14 @@
 键盘操作的文件管理器 vifm 。简单记录一下常用的几个操作。&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>mas: macOS 命令行中的 App Store</title>
+      <link>https://dearxs.github.io/posts/mas/</link>
+      <pubDate>Tue, 22 Jun 2021 13:31:13 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/mas/</guid>
+      <description>&lt;p&gt;macOS 上的 App Store 中安装软件，总是遇到一只转圈圈，就是不安装，重试好几次，重启机器也没有用。最后找到了这个方法，命令行的 App Store，屡试不爽，分享出来。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

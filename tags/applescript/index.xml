@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AppleScript on 胸毛齐腰</title>
+    <link>https://dearxs.github.io/tags/applescript/</link>
+    <description>Recent content in AppleScript on 胸毛齐腰</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 22 Jun 2021 17:12:39 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/tags/applescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macOS 自动化脚本语言 Applescript 简明教程</title>
+      <link>https://dearxs.github.io/posts/applescript/</link>
+      <pubDate>Tue, 22 Jun 2021 17:12:39 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/applescript/</guid>
+      <description>&lt;p&gt;&lt;code&gt;applescript&lt;/code&gt; 是苹果公司开发的一门专门用于 Mac 电脑自动化的脚本语言。语法简单，类似英语语法，可以用于执行简单、重复的工作。建议大概了解一下，然后在 Github 或 Google 搜索别人写出的脚本使用即可。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

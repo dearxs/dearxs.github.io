@@ -8,11 +8,11 @@
 	
 	
 	
-	<title>Hello World ｜ 胸毛齐腰</title>
+	<title>macOS 自动化脚本语言 Applescript 简明教程 ｜ 胸毛齐腰</title>
 	
     
     
-    <meta name="description" content="重新开始吧。
+    <meta name="description" content="applescript 是苹果公司开发的一门专门用于 Mac 电脑自动化的脚本语言。语法简单，类似英语语法，可以用于执行简单、重复的工作。建议大概了解一下，然后在 Github 或 Google 搜索别人写出的脚本使用即可。
 " />
     
 
@@ -98,15 +98,55 @@
             <div class="post_page">
                 <div class="post animate__animated animate__fadeInDown">
                     <div class="post_title post_detail_title">
-                        <h2><a href='/posts/new-start/'>Hello World</a></h2>
+                        <h2><a href='/posts/applescript/'>macOS 自动化脚本语言 Applescript 简明教程</a></h2>
                         <span class="date">2021.06.22</span>
                     </div>
-                    <div class="post_content markdown"><p>重新开始吧。</p>
-<p>使用 Hugo 搭建，主题 zozo 。主题设置文件是 <code>config.toml</code>。同步分支是 <code>gh-pages</code>。</p>
+                    <div class="post_content markdown"><p><code>applescript</code> 是苹果公司开发的一门专门用于 Mac 电脑自动化的脚本语言。语法简单，类似英语语法，可以用于执行简单、重复的工作。建议大概了解一下，然后在 Github 或 Google 搜索别人写出的脚本使用即可。</p>
+<p>关于这篇文章，录制了一期简单的视频，在 <a href="https://www.bilibili.com/video/BV1NK4y1T7wA">B站</a> 可以查看。</p>
+<h1 id="一些简单的语法介绍">一些简单的语法介绍</h1>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- beep 3 
+-- say &#34;你好我是胸毛齐腰&#34; using &#34;Mei-jia&#34; 
+-- display dialog &#34;Hi, I&#39;m your Mac.&#34; with title &#34;Say Hi&#34; with icon stop 
+-- display alert &#34;这是个警告！&#34; 
+ -- set the bounds of 
+ -- tell application &#34;Finder&#34; to get the name of front Finder window
+</code></pre></div><h1 id="一些有用的-applescript-代码片段">一些有用的 applescript 代码片段</h1>
+<p><strong>打开当前用户 Home 文件</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">tell application &#34;Finder&#34; to open home
+</code></pre></div><p><strong>留下一个 Finder 窗口，关闭其他</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">tell application &#34;Finder&#34; 
+repeat while window 2 exists 
+close window 2 
+ end repeat 
+end tell
+</code></pre></div><p><strong>打开 Finder 窗口，设定其格式</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">tell application &#34;Finder&#34; 
+tell front window 
+ set toolbar visible to true 
+ set current view to list view 
+ set bounds to {233, 20, 1333, 900} 
+ set sidebar width to 150 
+ end tell 
+end tell
+</code></pre></div><p><strong>获取当前选择文件的 UNIX 地址（复制到剪贴板）</strong></p>
+<p>即 <code>/Users/xxx/Desktop/xxx/</code> 这种格式的地址</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">tell application &#34;Finder&#34; 
+ set theItems to selection 
+ set filePath to (POSIX path of (the selection as alias)) 
+end tell 
+set the clipboard to filePath
+</code></pre></div><h1 id="如何运行">如何运行</h1>
 <ul>
-<li><strong>创建文章命令</strong>：<code>hugo new post.md</code></li>
-<li><strong>本地预览文件</strong>：<code>hugo server -t theme-name</code></li>
-<li><strong>部署生成文件</strong>：<code>hugo</code></li>
+<li>系统自带的 Script Editor 和 Automator</li>
+<li>免费代码编辑器 + 代码运行插件 <code>CodeRunner</code></li>
+<li>免费软件 Raycast （也可以运行其他语言的命令，其 Github 命令库中有许多代码可用）</li>
+<li>付费软件 Keyboard Maestro</li>
+</ul>
+<h1 id="参考学习资料">参考学习资料</h1>
+<ul>
+<li><a href="https://macosxautomation.com/applescript/firsttutorial/index.html">AppleScript: Beginner&rsquo;s Tutorial</a> 个人（前苹果自动化负责人）</li>
+<li><a href="https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html#:~:text=AppleScript%20is%20a%20scripting%20language%20created%20by%20Apple.,from%20multiple%20scriptable%20applications%2C%20and%20create%20complex%20workflows.">Introduction to AppleScript Language Guide 官方</a></li>
+<li><a href="https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/index.html">Mac Automation Scripting Guide</a>: About Mac Scripting 官方</li>
 </ul></div>
                     <div class="post_footer">
                         
@@ -115,7 +155,7 @@
                                 <span class="field tags">
                                     <i class="ri-stack-line"></i>
                                     
-                                    <a href="https://dearxs.github.io/tags/hugo/">hugo</a>
+                                    <a href="https://dearxs.github.io/tags/applescript/">AppleScript</a>
                                     
                                 </span>
                             </div>

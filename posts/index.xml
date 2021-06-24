@@ -6,7 +6,25 @@
     <description>Recent content in Posts on 胸毛齐腰</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 22 Jun 2021 15:46:29 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Jun 2021 10:37:19 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>写作中的「写生」</title>
+      <link>https://dearxs.github.io/posts/sketch/</link>
+      <pubDate>Thu, 24 Jun 2021 10:37:19 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/sketch/</guid>
+      <description>天空灰蓝，到了远处和大地相连的地方越来越灰，灰扑扑的。极目所望，整片天空只有只有眼前一缕白色的云，说是一缕，可能是飞机划过的尾气，慢慢地也随着风，那一缕变得凌乱起来。 上面这一段是我此时窗外的景象。这就</description>
+    </item>
+    
+    <item>
+      <title>macOS 自动化脚本语言 Applescript 简明教程</title>
+      <link>https://dearxs.github.io/posts/applescript/</link>
+      <pubDate>Tue, 22 Jun 2021 17:12:39 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/applescript/</guid>
+      <description>&lt;p&gt;&lt;code&gt;applescript&lt;/code&gt; 是苹果公司开发的一门专门用于 Mac 电脑自动化的脚本语言。语法简单，类似英语语法，可以用于执行简单、重复的工作。建议大概了解一下，然后在 Github 或 Google 搜索别人写出的脚本使用即可。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>命令行文件管理器 vifm 简明使用指南</title>
       <link>https://dearxs.github.io/posts/vifm/</link>
@@ -15,6 +33,15 @@
       <guid>https://dearxs.github.io/posts/vifm/</guid>
       <description>&lt;p&gt;这几天没有鼠标，管理器文件来触摸板摸来摸去难受，所以学习了基于 vim
 键盘操作的文件管理器 vifm 。简单记录一下常用的几个操作。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>mas: macOS 命令行中的 App Store</title>
+      <link>https://dearxs.github.io/posts/mas/</link>
+      <pubDate>Tue, 22 Jun 2021 13:31:13 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/mas/</guid>
+      <description>&lt;p&gt;macOS 上的 App Store 中安装软件，总是遇到一只转圈圈，就是不安装，重试好几次，重启机器也没有用。最后找到了这个方法，命令行的 App Store，屡试不爽，分享出来。&lt;/p&gt;</description>
     </item>
     
     <item>
