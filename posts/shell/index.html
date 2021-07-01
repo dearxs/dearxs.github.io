@@ -8,12 +8,11 @@
 	
 	
 	
-	<title>写作中的「写生」 ｜ 胸毛齐腰</title>
+	<title>一行代码提取所有子文件夹特定类型文件 ｜ 胸毛齐腰</title>
 	
     
     
-    <meta name="description" content="天空灰蓝，到了远处和大地相连的地方越来越灰，灰扑扑的。极目所望，整片天空只有只有眼前一缕白色的云，说是一缕，可能是飞机划过的尾气，慢慢地也随着风，那一缕变得凌乱起来。
-" />
+    <meta name="description" content="有网友发来求助： 将选定文件夹下层的多个子文件夹中的图片（有重名）都移动到母文件夹中，并将他们按“指定文件夹名称&#43;序号”形式重命名。 这个用 Applescript 我不知道怎么弄，但用 bash 就很简单了，就这么一行代码： n=1; for f in */*.jpg; do" />
     
 
     
@@ -98,17 +97,48 @@
             <div class="post_page">
                 <div class="post animate__animated animate__fadeInDown">
                     <div class="post_title post_detail_title">
-                        <h2><a href='/posts/sketch/'>写作中的「写生」</a></h2>
-                        <span class="date">2021.06.24</span>
+                        <h2><a href='/posts/shell/'>一行代码提取所有子文件夹特定类型文件</a></h2>
+                        <span class="date">2021.07.01</span>
                     </div>
-                    <div class="post_content markdown"><p>天空灰蓝，到了远处和大地相连的地方越来越灰，灰扑扑的。极目所望，整片天空只有只有眼前一缕白色的云，说是一缕，可能是飞机划过的尾气，慢慢地也随着风，那一缕变得凌乱起来。</p>
-<p>上面这一段是我此时窗外的景象。这就是写作中的「写生」。</p>
-<p>在江南四处游玩的时候，在水乡、园林，总能看到一批小学生或者大学生在写生，拿着自己画画的工具包，坐在自己拿的椅子上，对着眼前的景色，在画板上描摹。看着周围的景色慢慢在那一张白纸或白板上浮现，不由联想到，其实写作也需要这样的临摹或者速写，或者干脆叫写生吧。</p>
-<p>当你抱着一个「要把眼前的东西写下来」的心思去看周围的东西的时候，你会发现自己观察的更加仔细了：</p>
+                    <div class="post_content markdown"><p>有网友发来求助：</p>
 <blockquote>
-<p>夏天的阳光透过树叶的缝隙撒到地面上的光斑。刚刚骑着电动车路过的那个秃顶的大爷被汗水打湿的背心上的形状是个爱心。路边洒水车刚刚泼洒过水的地面淌着水，那种水雾混杂着泥土的味道。</p>
+<p>将选定文件夹下层的多个子文件夹中的图片（有重名）都移动到母文件夹中，并将他们按“指定文件夹名称+序号”形式重命名。</p>
 </blockquote>
-<p>这些细节会在你脑中过一下，就像夜空中的火星，闪一下，然后就灭了，遁入黑暗。你记不住。这些细节写下来就是一种练习，这样的练习就是写作中的「写生」。以后要多做这样的练习。</p></div>
+<p>这个用 Applescript 我不知道怎么弄，但用 bash 就很简单了，就这么一行代码：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">n</span><span class="o">=</span>1<span class="p">;</span> <span class="k">for</span> f in */*.jpg<span class="p">;</span> <span class="k">do</span> mv <span class="s2">&#34;</span><span class="nv">$f</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="k">$(</span><span class="nb">printf</span> <span class="s2">&#34;%02i_%s&#34;</span> <span class="s2">&#34;</span><span class="nv">$n</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">f</span><span class="p">/</span><span class="se">\/</span><span class="p">/_</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span><span class="p">;</span> <span class="o">((</span>n++<span class="o">))</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div><p>比如这样一个文件结构的文件夹内：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">├── test1
+│   ├── xxx.jpg
+│   ├── xxx.txt
+│   └── yyy.jpg
+├── test2
+│   ├── aaa.jpg
+│   └── xxx.txt
+└── test3
+    ├── xxx.jpg
+    └── xxx.txt
+</code></pre></div><p>运行一下这行代码，就成了：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">├── 01_test1_xxx.jpg
+├── 02_test1_yyy.jpg
+├── 03_test2_aaa.jpg
+├── 04_test3_xxx.jpg
+├── test1
+│   └── xxx.txt
+├── test2
+│   └── xxx.txt
+└── test3
+    └── xxx.txt
+</code></pre></div><h2 id="拆解一下">拆解一下</h2>
+<p>这行代码很简单，运行的时候，只需要打开系统自带的 Terminal，<code>cd</code> 到你需要提取文件的子文件夹的父文件夹（parent folder），然后输入这行命令即可。</p>
+<ul>
+<li><code>n</code> 就是文件名里的那个 counter 。</li>
+<li><code>for f in */*.jpg</code> 是一个 <em>for loop</em>，会遍历所有子文件夹中 jpg 格式的文件（如果是其他格式改成相应扩展即可）。</li>
+<li><code>${f/\//_}</code> 这段正则表达式会把路径中的斜杠替换成 dash 。</li>
+</ul>
+<p>就这样。使用起来就是：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/Pictures/test
+<span class="nv">n</span><span class="o">=</span>1<span class="p">;</span> <span class="k">for</span> f in */*.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">&#34;</span><span class="nv">$f</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="k">$(</span><span class="nb">printf</span> <span class="s2">&#34;%02i_%s&#34;</span> <span class="s2">&#34;</span><span class="nv">$n</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">f</span><span class="p">/</span><span class="se">\/</span><span class="p">/_</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span><span class="p">;</span> <span class="o">((</span>n++<span class="o">))</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div></div>
                     <div class="post_footer">
                         
                         <div class="meta">
@@ -116,9 +146,9 @@
                                 <span class="field tags">
                                     <i class="ri-stack-line"></i>
                                     
-                                    <a href="https://dearxs.github.io/tags/sketch/">sketch</a>
+                                    <a href="https://dearxs.github.io/tags/shell/">shell</a>
                                     
-                                    <a href="https://dearxs.github.io/tags/writing/">writing</a>
+                                    <a href="https://dearxs.github.io/tags/automation/">automation</a>
                                     
                                 </span>
                             </div>

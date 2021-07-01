@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on 胸毛齐腰</title>
+    <link>https://dearxs.github.io/tags/shell/</link>
+    <description>Recent content in shell on 胸毛齐腰</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Jul 2021 13:41:22 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一行代码提取所有子文件夹特定类型文件</title>
+      <link>https://dearxs.github.io/posts/shell/</link>
+      <pubDate>Thu, 01 Jul 2021 13:41:22 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/shell/</guid>
+      <description>有网友发来求助： 将选定文件夹下层的多个子文件夹中的图片（有重名）都移动到母文件夹中，并将他们按“指定文件夹名称+序号”形式重命名。 这个用 Applescript 我不知道怎么弄，但用 bash 就很简单了，就这么一行代码： n=1; for f in */*.jpg; do</description>
+    </item>
+    
+    <item>
+      <title>Fish Shell - 简单易用的终端“壳砸” </title>
+      <link>https://dearxs.github.io/posts/omf/</link>
+      <pubDate>Tue, 29 Jun 2021 14:08:41 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/omf/</guid>
+      <description>&lt;p&gt;之前一种用的 zsh 和 ohmyzsh ，最近使用 fish 一段时间，比 zsh 简单多了，用到的功能也基本都有，很满意。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -8,12 +8,11 @@
 	
 	
 	
-	<title>macOS 自动化脚本语言 Applescript 简明教程 ｜ 胸毛齐腰</title>
+	<title>Fish Shell - 简单易用的终端“壳砸”  ｜ 胸毛齐腰</title>
 	
     
     
-    <meta name="description" content="applescript 是苹果公司开发的一门专门用于 Mac 电脑自动化的脚本语言。语法简单，类似英语语法，可以用于执行简单、重复的工作。建议大概了解一下，然后在 Github 或 Google 搜索别人写出的脚本使用即可。
-" />
+    <meta name="description" content="Best shell." />
     
 
     
@@ -98,55 +97,56 @@
             <div class="post_page">
                 <div class="post animate__animated animate__fadeInDown">
                     <div class="post_title post_detail_title">
-                        <h2><a href='/posts/applescript/'>macOS 自动化脚本语言 Applescript 简明教程</a></h2>
-                        <span class="date">2021.06.22</span>
+                        <h2><a href='/posts/omf/'>Fish Shell - 简单易用的终端“壳砸” </a></h2>
+                        <span class="date">2021.06.29</span>
                     </div>
-                    <div class="post_content markdown"><p><code>applescript</code> 是苹果公司开发的一门专门用于 Mac 电脑自动化的脚本语言。语法简单，类似英语语法，可以用于执行简单、重复的工作。建议大概了解一下，然后在 Github 或 Google 搜索别人写出的脚本使用即可。</p>
-<p>关于这篇文章，录制了一期简单的视频，在 <a href="https://www.bilibili.com/video/BV1NK4y1T7wA">B站</a> 可以查看。</p>
-<h1 id="一些简单的语法介绍">一些简单的语法介绍</h1>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- beep 3 
--- say &#34;你好我是胸毛齐腰&#34; using &#34;Mei-jia&#34; 
--- display dialog &#34;Hi, I&#39;m your Mac.&#34; with title &#34;Say Hi&#34; with icon stop 
--- display alert &#34;这是个警告！&#34; 
- -- set the bounds of 
- -- tell application &#34;Finder&#34; to get the name of front Finder window
-</code></pre></div><h1 id="一些有用的-applescript-代码片段">一些有用的 applescript 代码片段</h1>
-<p><strong>打开当前用户 Home 文件</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">tell application &#34;Finder&#34; to open home
-</code></pre></div><p><strong>留下一个 Finder 窗口，关闭其他</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">tell application &#34;Finder&#34; 
-repeat while window 2 exists 
-close window 2 
- end repeat 
-end tell
-</code></pre></div><p><strong>打开 Finder 窗口，设定其格式</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">tell application &#34;Finder&#34; 
-tell front window 
- set toolbar visible to true 
- set current view to list view 
- set bounds to {233, 20, 1333, 900} 
- set sidebar width to 150 
- end tell 
-end tell
-</code></pre></div><p><strong>获取当前选择文件的 UNIX 地址（复制到剪贴板）</strong></p>
-<p>即 <code>/Users/xxx/Desktop/xxx/</code> 这种格式的地址</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">tell application &#34;Finder&#34; 
- set theItems to selection 
- set filePath to (POSIX path of (the selection as alias)) 
-end tell 
-set the clipboard to filePath
-</code></pre></div><h1 id="如何运行">如何运行</h1>
+                    <div class="post_content markdown"><p>之前一种用的 zsh 和 ohmyzsh ，最近使用 fish 一段时间，比 zsh 简单多了，用到的功能也基本都有，很满意。</p>
+<p>同时，插件 zsh 有的 fish 也基本找到了。插件管理器有两个，</p>
 <ul>
-<li>系统自带的 Script Editor 和 Automator</li>
-<li>免费代码编辑器 + 代码运行插件 <code>CodeRunner</code></li>
-<li>免费软件 Raycast （也可以运行其他语言的命令，其 Github 命令库中有许多代码可用）</li>
-<li>付费软件 Keyboard Maestro</li>
+<li>omf: oh my fish</li>
+<li>fisher</li>
 </ul>
-<h1 id="参考学习资料">参考学习资料</h1>
+<p>都挺好用，也都挺简单，比 ohmyzsh 简单多了。</p>
+<p>fish 的相关配置文件都在 <code>~/.config/fish/</code> 下面。文件夹中的东西也很简单：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">~/.config/fish
+├── completions
+├── conf.d
+├── config.fish <span class="c1"># = .zshrc</span>
+├── fish_plugins <span class="c1"># fisher plugins</span>
+├── fish_variables 
+└── functions <span class="c1"># prompt &amp; plugin funcs</span>
+</code></pre></div><h2 id="插件管理器">插件管理器</h2>
+<p>omf 可以安装主题和插件。主题中有著名的 agnoster ，以及极简主题 l、pure等，omf theme {tab} 可以查看可安装的主题。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">omf install xxx <span class="c1">#安装主题或插件</span>
+omf theme l <span class="c1">#切换主题</span>
+</code></pre></div><p>omf 可能是比较新，里面很多插件没有，所以就需要用到 fisher 了。基本所有的插件都可以用 fisher 安装，比如 git 的插件：<code>fisher install jhillyerd/plugin-git</code> 。</p>
+<p>安装之后，就可以使用相关命令了，全部命令<a href="https://github.com/jhillyerd/plugin-git">参见这里</a>。</p>
+<p>常用的有几个：</p>
 <ul>
-<li><a href="https://macosxautomation.com/applescript/firsttutorial/index.html">AppleScript: Beginner&rsquo;s Tutorial</a> 个人（前苹果自动化负责人）</li>
-<li><a href="https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html#:~:text=AppleScript%20is%20a%20scripting%20language%20created%20by%20Apple.,from%20multiple%20scriptable%20applications%2C%20and%20create%20complex%20workflows.">Introduction to AppleScript Language Guide 官方</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/index.html">Mac Automation Scripting Guide</a>: About Mac Scripting 官方</li>
+<li>gcm 	git commit -m</li>
+<li>gaa   git add -A</li>
+<li>gpo 	git push origin</li>
+</ul>
+<p>我自己经常用的也就这几个。</p>
+<p>其他的插件：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ fisher list                                                                                                             
+jorgebucaran/fisher
+oh-my-fish/plugin-pj
+jorgebucaran/fish-bax
+jhillyerd/plugin-git
+
+$ omf list
+<span class="c1"># Plugins</span>
+autojump        fish-spec       omf             z
+<span class="c1"># Themes</span>
+agnoster                l                       lolfish                 pie                     tomita                  yimmy
+default                 lambda                  mokou                   pure                    vercel-fish-theme       zish
+</code></pre></div><h2 id="其他">其他</h2>
+<p>安装 Fisher 遇到了一点问题，可能是因为 GFW 吧，所以就直接把<a href="https://raw.githubusercontent.com/jorgebucaran/fisher/HEAD/functions/fisher.fish">安装文件</a>下载下来，看看就是一个 fish 的 function ， 所以就放在 <code>~/.config/fish/functions/</code> 下改了个名字，然后运行 <code>fisher install jorgebucaran/fisher</code> 。一秒钟就安装好了。</p>
+<ul>
+<li>修改为默认 Shell ： <code>chsh -s /usr/local/bin/fish</code> 。</li>
+<li><a href="https://github.com/oh-my-fish/oh-my-fish">oh-my-fish/oh-my-fish: The Fish Shell Framework</a></li>
+<li><a href="https://github.com/jorgebucaran/fisher">jorgebucaran/fisher: A plugin manager for Fish.</a></li>
 </ul></div>
                     <div class="post_footer">
                         
@@ -155,7 +155,9 @@ set the clipboard to filePath
                                 <span class="field tags">
                                     <i class="ri-stack-line"></i>
                                     
-                                    <a href="https://dearxs.github.io/tags/applescript/">AppleScript</a>
+                                    <a href="https://dearxs.github.io/tags/fish/">fish</a>
+                                    
+                                    <a href="https://dearxs.github.io/tags/shell/">shell</a>
                                     
                                 </span>
                             </div>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fish on 胸毛齐腰</title>
+    <link>https://dearxs.github.io/tags/fish/</link>
+    <description>Recent content in fish on 胸毛齐腰</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 29 Jun 2021 14:08:41 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/tags/fish/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fish Shell - 简单易用的终端“壳砸” </title>
+      <link>https://dearxs.github.io/posts/omf/</link>
+      <pubDate>Tue, 29 Jun 2021 14:08:41 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/omf/</guid>
+      <description>&lt;p&gt;之前一种用的 zsh 和 ohmyzsh ，最近使用 fish 一段时间，比 zsh 简单多了，用到的功能也基本都有，很满意。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
