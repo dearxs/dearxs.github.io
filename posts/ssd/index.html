@@ -8,11 +8,11 @@
 	
 	
 	
-	<title>写作中的「写生」 ｜ 胸毛齐腰</title>
+	<title>macOS 查看 SSD 写入读取数据量 ｜ 胸毛齐腰</title>
 	
     
     
-    <meta name="description" content="天空灰蓝，到了远处和大地相连的地方越来越灰，灰扑扑的。极目所望，整片天空只有只有眼前一缕白色的云，说是一缕，可能是飞机划过的尾气，慢慢地也随着风，那一缕变得凌乱起来。
+    <meta name="description" content="最近准备给电脑扩容，看 SSD 的时候基本最重要的数据就是看读取的多少数据、写入了多少数据，因为硬盘保修的条件之一就是写入数据超过 500T 就不保修了。Windows 上用著名的 CrystalDiskInfo 就可以查看，macOS 下可以使用 smartctl 命令。
 " />
     
 
@@ -98,17 +98,17 @@
             <div class="post_page">
                 <div class="post animate__animated animate__fadeInDown">
                     <div class="post_title post_detail_title">
-                        <h2><a href='/posts/sketch/'>写作中的「写生」</a></h2>
-                        <span class="date">2021.06.24</span>
+                        <h2><a href='/posts/ssd/'>macOS 查看 SSD 写入读取数据量</a></h2>
+                        <span class="date">2021.07.07</span>
                     </div>
-                    <div class="post_content markdown"><p>天空灰蓝，到了远处和大地相连的地方越来越灰，灰扑扑的。极目所望，整片天空只有只有眼前一缕白色的云，说是一缕，可能是飞机划过的尾气，慢慢地也随着风，那一缕变得凌乱起来。</p>
-<p>上面这一段是我此时窗外的景象。这就是写作中的「写生」。</p>
-<p>在江南四处游玩的时候，在水乡、园林，总能看到一批小学生或者大学生在写生，拿着自己画画的工具包，坐在自己拿的椅子上，对着眼前的景色，在画板上描摹。看着周围的景色慢慢在那一张白纸或白板上浮现，不由联想到，其实写作也需要这样的临摹或者速写，或者干脆叫写生吧。</p>
-<p>当你抱着一个「要把眼前的东西写下来」的心思去看周围的东西的时候，你会发现自己观察的更加仔细了：</p>
-<blockquote>
-<p>夏天的阳光透过树叶的缝隙撒到地面上的光斑。刚刚骑着电动车路过的那个秃顶的大爷被汗水打湿的背心上的形状是个爱心。路边洒水车刚刚泼洒过水的地面淌着水，那种水雾混杂着泥土的味道。</p>
-</blockquote>
-<p>这些细节会在你脑中过一下，就像夜空中的火星，闪一下，然后就灭了，遁入黑暗。你记不住。这些细节写下来就是一种练习，这样的练习就是写作中的「写生」。以后要多做这样的练习。</p></div>
+                    <div class="post_content markdown"><p>最近准备给电脑扩容，看 SSD 的时候基本最重要的数据就是看读取的多少数据、写入了多少数据，因为硬盘保修的条件之一就是写入数据超过 500T 就不保修了。Windows 上用著名的 CrystalDiskInfo 就可以查看，macOS 下可以使用 <code>smartctl</code> 命令。</p>
+<p>使用 Homebrew 安装：<code>brew install smartctl</code>。至于 Brew 的安装这里就不赘述了， 参看这里 <a href="https://www.macworld.com/article/334283/how-to-m1-intel-mac-ssd-health-terminal-smartmontools.html">Macworld</a>。</p>
+<p>安装好之后，直接使用 <code>smartctl -a disk0</code> 命令可以看到一大堆数据，如果只需要看读取写入数据量，可以 <code>grep</code> 一下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">smartctl -a disk0 <span class="p">|</span> grep Host
+<span class="m">174</span> Host_Reads_MiB          0x0022   <span class="m">099</span>   <span class="m">099</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">39120976</span>
+<span class="m">175</span> Host_Writes_MiB         0x0022   <span class="m">099</span>   <span class="m">099</span>   <span class="m">000</span>    Old_age   Always       -       <span class="m">36593649</span>
+</code></pre></div><p>这样出来的就两行数据，一行是读取，一行是写入，单位是 MB 。</p>
+<p>换算一下，➗1000是GB，➗1000000是TB。我这台机器用了五年多了，读取写入量 39TB 和 36TB，所以那些动不动几百TB写入的硬盘，鬼知道它们经历了什么。</p></div>
                     <div class="post_footer">
                         
                         <div class="meta">
@@ -116,9 +116,7 @@
                                 <span class="field tags">
                                     <i class="ri-stack-line"></i>
                                     
-                                    <a href="https://dearxs.github.io/tags/sketch/">sketch</a>
-                                    
-                                    <a href="https://dearxs.github.io/tags/writing/">writing</a>
+                                    <a href="https://dearxs.github.io/tags/ssd/">ssd</a>
                                     
                                 </span>
                             </div>

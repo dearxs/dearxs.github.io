@@ -13,7 +13,11 @@
       <pubDate>Thu, 01 Jul 2021 13:41:22 +0800</pubDate>
       
       <guid>https://dearxs.github.io/posts/shell/</guid>
-      <description>有网友发来求助： 将选定文件夹下层的多个子文件夹中的图片（有重名）都移动到母文件夹中，并将他们按“指定文件夹名称+序号”形式重命名。 这个用 Applescript 我不知道怎么弄，但用 bash 就很简单了，就这么一行代码： n=1; for f in */*.jpg; do</description>
+      <description>&lt;p&gt;有网友发来求助：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将选定文件夹下层的多个子文件夹中的图片（有重名）都移动到母文件夹中，并将他们按“指定文件夹名称+序号”形式重命名。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个用 Applescript 我不知道怎么弄，但用 bash 就很简单了。&lt;/p&gt;</description>
     </item>
     
     <item>

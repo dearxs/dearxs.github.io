@@ -6,14 +6,46 @@
     <description>Recent content on 胸毛齐腰</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 01 Jul 2021 13:41:22 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Jul 2021 07:45:12 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macOS 查看 SSD 写入读取数据量</title>
+      <link>https://dearxs.github.io/posts/ssd/</link>
+      <pubDate>Wed, 07 Jul 2021 07:45:12 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/ssd/</guid>
+      <description>&lt;p&gt;最近准备给电脑扩容，看 SSD 的时候基本最重要的数据就是看读取的多少数据、写入了多少数据，因为硬盘保修的条件之一就是写入数据超过 500T 就不保修了。Windows 上用著名的 CrystalDiskInfo 就可以查看，macOS 下可以使用 &lt;code&gt;smartctl&lt;/code&gt; 命令。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>梦</title>
+      <link>https://dearxs.github.io/posts/dream/</link>
+      <pubDate>Tue, 06 Jul 2021 16:50:51 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/dream/</guid>
+      <description>&lt;p&gt;我喜欢做梦。白日梦。晚上睡觉不做梦。有段时间我觉得自己得了抑郁症，跟女友说，她问，晚上睡得好吗？挺好的。吃饭吃得下吗？吃得下。她冷笑两声，不理我了。但我真得觉得自己的抑郁了。具体症状就是爱做白日梦。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>多系统引导软件 rEFInd</title>
+      <link>https://dearxs.github.io/posts/refind/</link>
+      <pubDate>Tue, 06 Jul 2021 15:36:30 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/refind/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.rodsbooks.com/refind/&#34;&gt;The rEFInd Boot Manager&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这个东西可以替换系统自带的引导软件，官网在上面，我的使用环境是 macOS &lt;code&gt;Catalina 10.15.7&lt;/code&gt; 。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>一行代码提取所有子文件夹特定类型文件</title>
       <link>https://dearxs.github.io/posts/shell/</link>
       <pubDate>Thu, 01 Jul 2021 13:41:22 +0800</pubDate>
       
       <guid>https://dearxs.github.io/posts/shell/</guid>
-      <description>有网友发来求助： 将选定文件夹下层的多个子文件夹中的图片（有重名）都移动到母文件夹中，并将他们按“指定文件夹名称+序号”形式重命名。 这个用 Applescript 我不知道怎么弄，但用 bash 就很简单了，就这么一行代码： n=1; for f in */*.jpg; do</description>
+      <description>&lt;p&gt;有网友发来求助：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将选定文件夹下层的多个子文件夹中的图片（有重名）都移动到母文件夹中，并将他们按“指定文件夹名称+序号”形式重命名。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个用 Applescript 我不知道怎么弄，但用 bash 就很简单了。&lt;/p&gt;</description>
     </item>
     
     <item>

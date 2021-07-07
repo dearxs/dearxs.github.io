@@ -8,11 +8,12 @@
 	
 	
 	
-	<title>写作中的「写生」 ｜ 胸毛齐腰</title>
+	<title>多系统引导软件 rEFInd ｜ 胸毛齐腰</title>
 	
     
     
-    <meta name="description" content="天空灰蓝，到了远处和大地相连的地方越来越灰，灰扑扑的。极目所望，整片天空只有只有眼前一缕白色的云，说是一缕，可能是飞机划过的尾气，慢慢地也随着风，那一缕变得凌乱起来。
+    <meta name="description" content="The rEFInd Boot Manager
+这个东西可以替换系统自带的引导软件，官网在上面，我的使用环境是 macOS Catalina 10.15.7 。
 " />
     
 
@@ -98,17 +99,25 @@
             <div class="post_page">
                 <div class="post animate__animated animate__fadeInDown">
                     <div class="post_title post_detail_title">
-                        <h2><a href='/posts/sketch/'>写作中的「写生」</a></h2>
-                        <span class="date">2021.06.24</span>
+                        <h2><a href='/posts/refind/'>多系统引导软件 rEFInd</a></h2>
+                        <span class="date">2021.07.06</span>
                     </div>
-                    <div class="post_content markdown"><p>天空灰蓝，到了远处和大地相连的地方越来越灰，灰扑扑的。极目所望，整片天空只有只有眼前一缕白色的云，说是一缕，可能是飞机划过的尾气，慢慢地也随着风，那一缕变得凌乱起来。</p>
-<p>上面这一段是我此时窗外的景象。这就是写作中的「写生」。</p>
-<p>在江南四处游玩的时候，在水乡、园林，总能看到一批小学生或者大学生在写生，拿着自己画画的工具包，坐在自己拿的椅子上，对着眼前的景色，在画板上描摹。看着周围的景色慢慢在那一张白纸或白板上浮现，不由联想到，其实写作也需要这样的临摹或者速写，或者干脆叫写生吧。</p>
-<p>当你抱着一个「要把眼前的东西写下来」的心思去看周围的东西的时候，你会发现自己观察的更加仔细了：</p>
-<blockquote>
-<p>夏天的阳光透过树叶的缝隙撒到地面上的光斑。刚刚骑着电动车路过的那个秃顶的大爷被汗水打湿的背心上的形状是个爱心。路边洒水车刚刚泼洒过水的地面淌着水，那种水雾混杂着泥土的味道。</p>
-</blockquote>
-<p>这些细节会在你脑中过一下，就像夜空中的火星，闪一下，然后就灭了，遁入黑暗。你记不住。这些细节写下来就是一种练习，这样的练习就是写作中的「写生」。以后要多做这样的练习。</p></div>
+                    <div class="post_content markdown"><p><a href="http://www.rodsbooks.com/refind/">The rEFInd Boot Manager</a></p>
+<p>这个东西可以替换系统自带的引导软件，官网在上面，我的使用环境是 macOS <code>Catalina 10.15.7</code> 。</p>
+<h2 id="在同一块硬盘上安装多个版本的-macos">在同一块硬盘上安装多个版本的 macOS</h2>
+<p>今天才发现其实可以在同一块硬盘上安装两个版本的 macOS ，只要磁盘空间够大就好。所以就试着在机器上新建的一个 Volume 。</p>
+<p>使用系统自带的 Disk Utility 在硬盘的同一个 Container 里新建一个 Volume ，这个和普通的磁盘分区不一样，应该是 APFS —— 苹果的文件系统里特有的一个概念。</p>
+<p>反正新建一个 Volume 是和同一容器（container）下的其他 Volume 共享空间的，不用选择盘的大小。</p>
+<p>新建好之后，AppStore 中下载 Big Sur 的安装文件，安装的时候选择新建的那块盘就好了，其他的没有什么区别。</p>
+<h2 id="恢复用-refind-引导">恢复用 rEFInd 引导</h2>
+<p>安装好新系统之后，之前安装的 rEFInd 会失效。所以需要重新启用一下。具体步骤也很简单。</p>
+<ol>
+<li>创建一个文件夹 <code>sudo mkdir /Volumes/ESP</code></li>
+<li>挂载引导分区 <code>sudo mount -t msdos /dev/disk0s1 /Volumes/ESP</code></li>
+<li>然后使用 <em>bless</em> 命令。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo bless --mount /Volumes/ESP --setBoot --file /Volumes/ESP/efi/refind/refind_x64.efi --shortform
+</code></pre></div><p>然后重启机器就不再是系统自带的引导了。</p></div>
                     <div class="post_footer">
                         
                         <div class="meta">
@@ -116,9 +125,9 @@
                                 <span class="field tags">
                                     <i class="ri-stack-line"></i>
                                     
-                                    <a href="https://dearxs.github.io/tags/sketch/">sketch</a>
+                                    <a href="https://dearxs.github.io/tags/boot/">boot</a>
                                     
-                                    <a href="https://dearxs.github.io/tags/writing/">writing</a>
+                                    <a href="https://dearxs.github.io/tags/apps/">apps</a>
                                     
                                 </span>
                             </div>

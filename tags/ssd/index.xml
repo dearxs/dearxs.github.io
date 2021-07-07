@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssd on 胸毛齐腰</title>
+    <link>https://dearxs.github.io/tags/ssd/</link>
+    <description>Recent content in ssd on 胸毛齐腰</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 07 Jul 2021 07:45:12 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/tags/ssd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macOS 查看 SSD 写入读取数据量</title>
+      <link>https://dearxs.github.io/posts/ssd/</link>
+      <pubDate>Wed, 07 Jul 2021 07:45:12 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/ssd/</guid>
+      <description>&lt;p&gt;最近准备给电脑扩容，看 SSD 的时候基本最重要的数据就是看读取的多少数据、写入了多少数据，因为硬盘保修的条件之一就是写入数据超过 500T 就不保修了。Windows 上用著名的 CrystalDiskInfo 就可以查看，macOS 下可以使用 &lt;code&gt;smartctl&lt;/code&gt; 命令。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

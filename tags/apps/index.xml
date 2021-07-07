@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apps on 胸毛齐腰</title>
+    <link>https://dearxs.github.io/tags/apps/</link>
+    <description>Recent content in apps on 胸毛齐腰</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 06 Jul 2021 15:36:30 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/tags/apps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>多系统引导软件 rEFInd</title>
+      <link>https://dearxs.github.io/posts/refind/</link>
+      <pubDate>Tue, 06 Jul 2021 15:36:30 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/refind/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.rodsbooks.com/refind/&#34;&gt;The rEFInd Boot Manager&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这个东西可以替换系统自带的引导软件，官网在上面，我的使用环境是 macOS &lt;code&gt;Catalina 10.15.7&lt;/code&gt; 。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

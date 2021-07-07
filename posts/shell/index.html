@@ -12,7 +12,10 @@
 	
     
     
-    <meta name="description" content="有网友发来求助： 将选定文件夹下层的多个子文件夹中的图片（有重名）都移动到母文件夹中，并将他们按“指定文件夹名称&#43;序号”形式重命名。 这个用 Applescript 我不知道怎么弄，但用 bash 就很简单了，就这么一行代码： n=1; for f in */*.jpg; do" />
+    <meta name="description" content="有网友发来求助：
+ 将选定文件夹下层的多个子文件夹中的图片（有重名）都移动到母文件夹中，并将他们按“指定文件夹名称&#43;序号”形式重命名。
+ 这个用 Applescript 我不知道怎么弄，但用 bash 就很简单了。
+" />
     
 
     
@@ -72,7 +75,7 @@
             </h1>
         </div>
         <div class="description">
-            <p class="sub_title">Nerdy tidbits.</p>
+            <p class="sub_title">nerdy tidbits*</p>
             <div class="my_socials">
                 
                 
@@ -104,7 +107,8 @@
 <blockquote>
 <p>将选定文件夹下层的多个子文件夹中的图片（有重名）都移动到母文件夹中，并将他们按“指定文件夹名称+序号”形式重命名。</p>
 </blockquote>
-<p>这个用 Applescript 我不知道怎么弄，但用 bash 就很简单了，就这么一行代码：</p>
+<p>这个用 Applescript 我不知道怎么弄，但用 bash 就很简单了。</p>
+<p>就这么一行代码：</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">n</span><span class="o">=</span>1<span class="p">;</span> <span class="k">for</span> f in */*.jpg<span class="p">;</span> <span class="k">do</span> mv <span class="s2">&#34;</span><span class="nv">$f</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="k">$(</span><span class="nb">printf</span> <span class="s2">&#34;%02i_%s&#34;</span> <span class="s2">&#34;</span><span class="nv">$n</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">f</span><span class="p">/</span><span class="se">\/</span><span class="p">/_</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span><span class="p">;</span> <span class="o">((</span>n++<span class="o">))</span><span class="p">;</span> <span class="k">done</span>
 </code></pre></div><p>比如这样一个文件结构的文件夹内：</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">├── test1
@@ -138,6 +142,9 @@
 <p>就这样。使用起来就是：</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/Pictures/test
 <span class="nv">n</span><span class="o">=</span>1<span class="p">;</span> <span class="k">for</span> f in */*.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">&#34;</span><span class="nv">$f</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="k">$(</span><span class="nb">printf</span> <span class="s2">&#34;%02i_%s&#34;</span> <span class="s2">&#34;</span><span class="nv">$n</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">f</span><span class="p">/</span><span class="se">\/</span><span class="p">/_</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span><span class="p">;</span> <span class="o">((</span>n++<span class="o">))</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div><p>要把这些文件提取到新的文件夹也很简单，先创建一个文件夹，然后修改 mv 命令后半段即可。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir ~/Pictures/test/newfolder
+<span class="nv">n</span><span class="o">=</span>1<span class="p">;</span> <span class="k">for</span> f in */*.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">&#34;</span><span class="nv">$f</span><span class="s2">&#34;</span> newfolder/<span class="s2">&#34;</span><span class="k">$(</span><span class="nb">printf</span> <span class="s2">&#34;%02i_%s&#34;</span> <span class="s2">&#34;</span><span class="nv">$n</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">f</span><span class="p">/</span><span class="se">\/</span><span class="p">/_</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span><span class="p">;</span> <span class="o">((</span>n++<span class="o">))</span><span class="p">;</span> <span class="k">done</span>
 </code></pre></div></div>
                     <div class="post_footer">
                         
