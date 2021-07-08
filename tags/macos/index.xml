@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>macOS on 胸毛齐腰</title>
+    <link>https://dearxs.github.io/tags/macos/</link>
+    <description>Recent content in macOS on 胸毛齐腰</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 07 Jul 2021 15:09:56 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 macOS 的 Time Machine</title>
+      <link>https://dearxs.github.io/posts/time-machine/</link>
+      <pubDate>Wed, 07 Jul 2021 15:09:56 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/time-machine/</guid>
+      <description>&lt;p&gt;第一次使用了苹果系统的备份工具：时间机器。确切的说，只是使用了备份的功能，还没有恢复过。过两天使用恢复的功能。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

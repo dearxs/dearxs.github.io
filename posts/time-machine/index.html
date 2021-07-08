@@ -8,11 +8,12 @@
 	
 	
 	
-	<title>sketch ｜ 胸毛齐腰</title>
+	<title>使用 macOS 的 Time Machine ｜ 胸毛齐腰</title>
 	
     
     
-    <meta name="description" content="best tools i use" />
+    <meta name="description" content="第一次使用了苹果系统的备份工具：时间机器。确切的说，只是使用了备份的功能，还没有恢复过。过两天使用恢复的功能。
+" />
     
 
     
@@ -21,8 +22,6 @@
     
 
 	
-	<link rel="alternate" type="application/rss+xml" href="https://dearxs.github.io/tags/sketch/index.xml" title="胸毛齐腰" />
-    
     
     <link rel="shortcut icon" href="https://dearxs.github.io/images/favicon.ico" />
 
@@ -96,39 +95,44 @@
     </div>
 </div>
         <div class="content">
-            <div class="list_with_title">
-                
-                <div class="listing_title">2021</div>
-                <div class="listing">
-                    
-                    <div class="listing_item">
-                        <div class="listing_post">
-                            <a href="/posts/bus-stop/">盛夏早上的公交站</a>
-                            <div class="post_time"><span class="date">07-07</span></div>
-                        </div>
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/time-machine/'>使用 macOS 的 Time Machine</a></h2>
+                        <span class="date">2021.07.07</span>
                     </div>
-                    
-                    <div class="listing_item">
-                        <div class="listing_post">
-                            <a href="/posts/dream/">梦</a>
-                            <div class="post_time"><span class="date">07-06</span></div>
+                    <div class="post_content markdown"><p>第一次使用了苹果系统的备份工具：时间机器。确切的说，只是使用了备份的功能，还没有恢复过。过两天使用恢复的功能。</p>
+<p>之前尝试用过一次，但当备份剩余时间显示为十几个小时的时候，我放弃了。这委屈谁受得了。今天在网上搜索了一下加速备份的方法，还真有。</p>
+<p>命令使用过后一定要恢复原状态，因为这个命令调整的是系统服务的优先级，影响还是挺大的。命令生效需要一定的时间，所以也不用时刻盯着备份剩余时间。反正启用命令之后，我原先显示十几个小时的备份，两三个小时就备份好了。</p>
+<ul>
+<li>加速命令：<code>sudo systemctl debug.lowpri_throttle_enable=0</code></li>
+<li>还原命令：最后那个 0 改为 1 就可以。</li>
+</ul></div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://dearxs.github.io/tags/macos/">macOS</a>
+                                    
+                                    <a href="https://dearxs.github.io/tags/backup/">backup</a>
+                                    
+                                </span>
+                            </div>
                         </div>
+                        
                     </div>
-                    
-                    <div class="listing_item">
-                        <div class="listing_post">
-                            <a href="/posts/sketch/">写作中的「写生」</a>
-                            <div class="post_time"><span class="date">06-24</span></div>
-                        </div>
-                    </div>
-                    
                 </div>
                 
+                
+                <div class="doc_comments"></div>
+                
             </div>
-            <div class="pagination"></div>
         </div>
-        <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
     </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
     <footer class="footer">
     <div class="powered_by">
         <a href="http://www.gohugo.io/"> Built with Hugo, </a>
