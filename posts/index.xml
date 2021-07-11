@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 胸毛齐腰</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 08 Jul 2021 15:22:10 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Jul 2021 09:36:58 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Obsidian 配合 Anki 速记卡片</title>
+      <link>https://dearxs.github.io/posts/obs-anki/</link>
+      <pubDate>Sun, 11 Jul 2021 09:36:58 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/obs-anki/</guid>
+      <description>&lt;p&gt;使用 Markdown 语法写卡片笔记，然后同步到 Anki 进行记忆。配套的视频在这里：&lt;a href=&#34;https://www.bilibili.com/video/BV1i5411P7wc#reply4875731351&#34;&gt;快速制作 anki 卡片 | 笔记神器 Obsidian 完全指南_哔哩哔哩_bilibili&lt;/a&gt; 。看起来麻烦，其实还是比较简单的。重点是那段正则，B 站的评论系统会自动转换成中文符号，无语。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>试译：征服与文化</title>
       <link>https://dearxs.github.io/posts/conquer/</link>
