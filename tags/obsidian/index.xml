@@ -6,7 +6,22 @@
     <description>Recent content in Obsidian on 胸毛齐腰</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 11 Jul 2021 09:36:58 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/tags/obsidian/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Sep 2021 09:51:56 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/tags/obsidian/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Minimal 主题增强</title>
+      <link>https://dearxs.github.io/posts/minimal-plus/</link>
+      <pubDate>Sun, 19 Sep 2021 09:51:56 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/minimal-plus/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Obsidian&lt;/em&gt; 的主题里面最喜欢 Minimal 这个极简主题，但是有几个问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;标题大小不明显，很难区分；&lt;/li&gt;
+&lt;li&gt;标题没有颜色；&lt;/li&gt;
+&lt;li&gt;粗体和斜体没有颜色；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以东拼西凑搞了一个小的 CSS 代码片段来增强一下这个主题。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Obsidian 配合 Anki 速记卡片</title>
       <link>https://dearxs.github.io/posts/obs-anki/</link>

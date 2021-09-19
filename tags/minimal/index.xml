@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>minimal on 胸毛齐腰</title>
+    <link>https://dearxs.github.io/tags/minimal/</link>
+    <description>Recent content in minimal on 胸毛齐腰</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 19 Sep 2021 09:51:56 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/tags/minimal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Minimal 主题增强</title>
+      <link>https://dearxs.github.io/posts/minimal-plus/</link>
+      <pubDate>Sun, 19 Sep 2021 09:51:56 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/minimal-plus/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Obsidian&lt;/em&gt; 的主题里面最喜欢 Minimal 这个极简主题，但是有几个问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;标题大小不明显，很难区分；&lt;/li&gt;
+&lt;li&gt;标题没有颜色；&lt;/li&gt;
+&lt;li&gt;粗体和斜体没有颜色；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以东拼西凑搞了一个小的 CSS 代码片段来增强一下这个主题。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
