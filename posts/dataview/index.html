@@ -8,11 +8,12 @@
 	
 	
 	
-	<title>Obsidian ｜ 胸毛齐腰</title>
+	<title>Obsidian 使用 Dataview 插件统计数据 ｜ 胸毛齐腰</title>
 	
     
     
-    <meta name="description" content="best tools i use" />
+    <meta name="description" content="参考 给 Obsidian 来个起始页 :: 木木木木木 这篇文章给弄了个统计笔记库数据的模块。
+" />
     
 
     
@@ -21,8 +22,6 @@
     
 
 	
-	<link rel="alternate" type="application/rss+xml" href="https://dearxs.github.io/tags/obsidian/index.xml" title="胸毛齐腰" />
-    
     
     <link rel="shortcut icon" href="https://dearxs.github.io/images/favicon.ico" />
 
@@ -100,46 +99,63 @@
     </div>
 </div>
         <div class="content">
-            <div class="list_with_title">
-                
-                <div class="listing_title">2021</div>
-                <div class="listing">
-                    
-                    <div class="listing_item">
-                        <div class="listing_post">
-                            <a href="/posts/tables/">Obsidian 表格使用 Advance Tables 插件</a>
-                            <div class="post_time"><span class="date">09-21</span></div>
-                        </div>
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/dataview/'>Obsidian 使用 Dataview 插件统计数据</a></h2>
+                        <span class="date">2021.09.21</span>
                     </div>
-                    
-                    <div class="listing_item">
-                        <div class="listing_post">
-                            <a href="/posts/dataview/">Obsidian 使用 Dataview 插件统计数据</a>
-                            <div class="post_time"><span class="date">09-21</span></div>
+                    <div class="post_content markdown"><p>参考 <a href="https://immmmm.com/obsidian-start-me-page/">给 Obsidian 来个起始页 :: 木木木木木</a> 这篇文章给弄了个统计笔记库数据的模块。</p>
+<p>代码如下：</p>
+<h3 id="标签聚合">标签聚合</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">dv.paragraph(
+  dv.pages(&#34;&#34;).file.etags.distinct()
+  .sort(t =&gt; dv.pages(t).length , &#39;desc&#39;)
+  .map(
+  	t =&gt; {
+		return `[${t}](${t})`+&#34;(&#34;+dv.pages(t).length+&#34;)&#34;
+	}
+  ).array().join(&#34; &#34;)
+)
+</code></pre></div><h3 id="数据统计">数据统计</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">let ftMd = dv.pages(&#34;&#34;).file.sort(t =&gt; t.cday)[0]
+let total = parseInt([new Date() - ftMd.ctime] / (60*60*24*1000))
+let totalDays = &#34;已使用 *Obsidian* &#34;+total+&#34; 天，&#34;
+let nofold = &#39;!&#34;misc/templates&#34;&#39;
+let allFile = dv.pages(nofold).file
+let totalMd = &#34;共创建 &#34;+
+	allFile.length+&#34; 篇文档&#34;
+let totalTag = allFile.etags.distinct().length+&#34; 个标签&#34;
+let totalTask = allFile.tasks.length+&#34; 个待办。 &lt;br&gt;&lt;br&gt;&#34;
+dv.paragraph(
+	totalDays+totalMd+&#34;、&#34;+totalTag+&#34;、&#34;+totalTask
+)
+</code></pre></div><p>最终现实的文字为<code>已使用 Obsidian x 天，共创建 x 篇文档、x 个标签、x 个待办。</code>，可在里面更改。</p></div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://dearxs.github.io/tags/obsidian/">obsidian</a>
+                                    
+                                    <a href="https://dearxs.github.io/tags/plugin/">plugin</a>
+                                    
+                                </span>
+                            </div>
                         </div>
+                        
                     </div>
-                    
-                    <div class="listing_item">
-                        <div class="listing_post">
-                            <a href="/posts/minimal-plus/">Minimal 主题增强</a>
-                            <div class="post_time"><span class="date">09-19</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="listing_item">
-                        <div class="listing_post">
-                            <a href="/posts/obs-anki/">Obsidian 配合 Anki 速记卡片</a>
-                            <div class="post_time"><span class="date">07-11</span></div>
-                        </div>
-                    </div>
-                    
                 </div>
                 
+                
+                <div class="doc_comments"></div>
+                
             </div>
-            <div class="pagination"></div>
         </div>
-        <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
     </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
     <footer class="footer">
     <div class="powered_by">
         <a href="http://www.gohugo.io/"> <em>built with Hugo,</em> </a>

@@ -6,7 +6,25 @@
     <description>Recent content in Obsidian on 胸毛齐腰</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Sep 2021 09:51:56 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/tags/obsidian/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Sep 2021 07:33:12 +0800</lastBuildDate><atom:link href="https://dearxs.github.io/tags/obsidian/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Obsidian 使用 Dataview 插件统计数据</title>
+      <link>https://dearxs.github.io/posts/dataview/</link>
+      <pubDate>Tue, 21 Sep 2021 07:33:12 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/dataview/</guid>
+      <description>&lt;p&gt;参考 &lt;a href=&#34;https://immmmm.com/obsidian-start-me-page/&#34;&gt;给 Obsidian 来个起始页 :: 木木木木木&lt;/a&gt; 这篇文章给弄了个统计笔记库数据的模块。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Obsidian 表格使用 Advance Tables 插件</title>
+      <link>https://dearxs.github.io/posts/tables/</link>
+      <pubDate>Tue, 21 Sep 2021 07:33:12 +0800</pubDate>
+      
+      <guid>https://dearxs.github.io/posts/tables/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Advanced Tables&lt;/em&gt; 插件的使用比较简单，见视频演示。不过 &lt;em&gt;minimal&lt;/em&gt; 主题的表格样式有些简单，可以在 css 文件中简单的修改。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Minimal 主题增强</title>
       <link>https://dearxs.github.io/posts/minimal-plus/</link>
